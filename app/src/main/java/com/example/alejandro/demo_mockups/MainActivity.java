@@ -83,17 +83,20 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-
+            Intent campeonato=new Intent(MainActivity.this,Anyo_campeonato.class);
+            startActivity(campeonato);
         } else if (id == R.id.nav_gallery) {
-
+            Intent Ajustes=new Intent(MainActivity.this,Ajustes.class);
+            startActivity(Ajustes);
         } else if (id == R.id.nav_slideshow) {
-
+            Intent Contact=new Intent(MainActivity.this,Contact.class);
+            startActivity(Contact);
         } else if (id == R.id.nav_manage) {
-
+            Intent About=new Intent(MainActivity.this,About.class);
+            startActivity(About);
         } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            Intent Login=new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(Login);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
