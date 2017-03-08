@@ -49,8 +49,28 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Clasificacion"
+            android:label="@string/title_activity_clasificacion"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Circuitos"
+            android:label="@string/title_activity_circuitos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Calendario"
+            android:label="@string/title_activity_calendario"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Pilotos"
+            android:label="@string/title_activity_pilotos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Equipos"
+            android:label="@string/title_activity_equipos"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

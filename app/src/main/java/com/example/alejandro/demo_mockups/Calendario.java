@@ -8,21 +8,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class Anyo_campeonato extends AppCompatActivity {
+public class Calendario extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anyo_campeonato);
+        setContentView(R.layout.activity_calendario);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setupActionBar();
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     private void setupActionBar(){
 
-    ActionBar actionBar =getSupportActionBar();
-    if (actionBar!=null){
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar =getSupportActionBar();
+        if (actionBar!=null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+
     }
-}
 }

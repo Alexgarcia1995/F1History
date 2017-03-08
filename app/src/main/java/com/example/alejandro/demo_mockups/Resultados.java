@@ -18,11 +18,22 @@ public class Resultados extends AppCompatActivity {
         setContentView(R.layout.activity_resultados);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setupActionBar();
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
-    public boolean onOptionsItemSelected(MenuItem item){
-        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivityForResult(myIntent, 0);
-        return true;
+    private void setupActionBar(){
+
+        android.support.v7.app.ActionBar actionBar =getSupportActionBar();
+        if (actionBar!=null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+
     }
 
 }

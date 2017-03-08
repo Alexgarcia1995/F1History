@@ -2,8 +2,6 @@ package com.example.alejandro.demo_mockups;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -34,14 +32,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        resultados=(Button)findViewById(R.id.button2);
-        resultados.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                Intent resu =new Intent(MainActivity.this,Resultados.class);
-                startActivity(resu);
-
-            }
-        });
+       ButtonSelected();
     }
 
     @Override
@@ -104,6 +95,70 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    public void ButtonSelected(){
+        resultados=(Button)findViewById(R.id.resultados);
+        resultados.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent resu =new Intent(MainActivity.this,Resultados.class);
+                startActivity(resu);
+
+            }
+        });
+
+        resultados=(Button)findViewById(R.id.clasificacionC);
+        resultados.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent resu =new Intent(MainActivity.this,Clasificacion.class);
+                startActivity(resu);
+
+            }
+        });
+
+        resultados=(Button)findViewById(R.id.clasificacionP);
+        resultados.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent resu =new Intent(MainActivity.this,Clasificacion.class);
+                startActivity(resu);
+
+            }
+        });
+
+        resultados=(Button)findViewById(R.id.calendario);
+        resultados.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent resu =new Intent(MainActivity.this,Calendario.class);
+                startActivity(resu);
+
+            }
+        });
+
+        resultados=(Button)findViewById(R.id.circuitos);
+        resultados.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent resu =new Intent(MainActivity.this,Circuitos.class);
+                startActivity(resu);
+
+            }
+        });
+
+        resultados=(Button)findViewById(R.id.equipos);
+        resultados.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent resu =new Intent(MainActivity.this,Equipos.class);
+                startActivity(resu);
+
+            }
+        });
+
+        resultados=(Button)findViewById(R.id.pilotos);
+        resultados.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent resu =new Intent(MainActivity.this,Pilotos.class);
+                startActivity(resu);
+
+            }
+        });
+    }
 
 
 }
