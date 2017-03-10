@@ -70,7 +70,20 @@
         <activity
             android:name=".Equipos"
             android:label="@string/title_activity_equipos"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Grid_item"
+            android:label="@string/title_activity_grid_item"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Detalles_Pilotos"
+            android:label="@string/title_activity_detalles__pilotos"
+            android:parentActivityName=".Pilotos"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alejandro.demo_mockups.Pilotos" />
+        </activity>
     </application>
 
 </manifest>

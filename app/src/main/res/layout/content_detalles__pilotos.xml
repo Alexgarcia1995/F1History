@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_pilotos"
+    android:id="@+id/content_detalles__pilotos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -10,14 +10,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.alejandro.demo_mockups.Pilotos"
-    tools:showIn="@layout/activity_pilotos">
-    <GridView
-        android:id="@+id/grid"
+    tools:context="com.example.alejandro.demo_mockups.Detalles_Pilotos"
+    tools:showIn="@layout/activity_detalles__pilotos"
+    android:orientation="vertical">
+
+
+    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/imagen_extendida"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnWidth="120dp"
-        android:horizontalSpacing="10dp"
-        android:numColumns="auto_fit"
-        android:verticalSpacing="10dp" />
-</LinearLayout>
+        android:transitionName="@string/nombre_transicion_imagen">
+
+    </ImageView>
+</RelativeLayout>
