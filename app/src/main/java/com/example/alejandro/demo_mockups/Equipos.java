@@ -1,37 +1,68 @@
 package com.example.alejandro.demo_mockups;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
-public class Equipos extends AppCompatActivity {
-    private GridView gridView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+public class Equipos extends AppCompatActivity implements AdapterView.OnItemClickListener{
+private GridView gridView;
+private Adapter_Equipos adapter;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pilotos);
+        setContentView(R.layout.activity_equipos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setupActionBar();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
+@Override
+public void onClick(View v) {
+        finish();
+        }
         });
-    }
-    private void setupActionBar(){
+        gridView=(GridView)findViewById(R.id.grid);
+        adapter=new Adapter_Equipos(this);
+        gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(this);
+        }
+private void setupActionBar(){
 
         ActionBar actionBar =getSupportActionBar();
         if (actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
 
-    }
+        }
+@Override
+public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Datos_Equipos item = (Datos_Equipos)parent.getItemAtPosition(position);
+
+        Intent intent = new Intent(this, Detalles_Equipos.class);
+        intent.putExtra(Detalles_Equipos.EXTRA_PARAM_ID, item.getId());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+        ActivityOptionsCompat activityOptions =
+        ActivityOptionsCompat.makeSceneTransitionAnimation(
+        this,
+        new Pair<View, String>(view.findViewById(R.id.imagen_coche),
+                Detalles_Equipos.VIEW_NAME_HEADER_IMAGE)
+        );
+
+        ActivityCompat.startActivity(this, intent, activityOptions.toBundle());
+        } else
+        startActivity(intent);
+        }
 
 }
