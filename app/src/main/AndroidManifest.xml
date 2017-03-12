@@ -93,6 +93,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alejandro.demo_mockups.Equipos" />
         </activity>
+        <activity
+            android:name=".Detalles_Circuitos"
+            android:label="@string/title_activity_detalles__circuitos"
+            android:parentActivityName=".Circuitos"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alejandro.demo_mockups.Circuitos" />
+        </activity>
     </application>
 
 </manifest>

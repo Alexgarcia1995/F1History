@@ -12,6 +12,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.alejandro.demo_mockups.Equipos"
     tools:showIn="@layout/activity_equipos">
+
     <GridView
         android:id="@+id/grid"
         android:layout_width="match_parent"
@@ -19,6 +20,7 @@
         android:columnWidth="120dp"
         android:horizontalSpacing="10dp"
         android:numColumns="auto_fit"
-        android:verticalSpacing="10dp" />
+        android:verticalSpacing="10dp"
+        android:scrollbars="none" />
 </LinearLayout>
 

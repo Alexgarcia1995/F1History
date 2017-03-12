@@ -39,5 +39,6 @@
     <string name="title_activity_grid_item">Grid_item</string>
     <string name="title_activity_detalles__pilotos">Detalles_Pilotos</string>
     <string name="title_activity_detalles__equipos">Detalles_Equipos</string>
+    <string name="title_activity_detalles__circuitos">Detalles_Circuitos</string>
 
 </resources>
