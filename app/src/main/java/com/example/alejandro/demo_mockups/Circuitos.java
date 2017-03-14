@@ -58,7 +58,7 @@ public class Circuitos extends AppCompatActivity
                     ActivityOptionsCompat.makeSceneTransitionAnimation(
                             this,
                             new Pair<View, String>(view.findViewById(R.id.imagen_coche),
-                                    Detalles_Pilotos.VIEW_NAME_HEADER_IMAGE)
+                                    Detalles_Circuitos.VIEW_NAME_HEADER_IMAGE)
                     );
 
             ActivityCompat.startActivity(this, intent, activityOptions.toBundle());

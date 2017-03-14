@@ -102,6 +102,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alejandro.demo_mockups.Circuitos" />
         </activity>
+        <activity
+            android:name=".Grid_List"
+            android:label="@string/title_activity_grid__list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Detalles_Resultados"
+            android:label="@string/title_activity_detalles__resultados"
+            android:parentActivityName=".Resultados"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.alejandro.demo_mockups.Resultados" />
+        </activity>
     </application>
 
 </manifest>
