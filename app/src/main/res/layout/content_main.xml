@@ -1,108 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.alejandro.demo_mockups.MainActivity"
-    tools:showIn="@layout/app_bar_main"
-    android:background="#FFBDD691">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
 
-
-    <Button
-        android:text="Resultados"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/content_main"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/resultados"
-        android:background="@drawable/botones_main"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="45dp"
+        android:background="#FFBDD691"
+        android:paddingBottom="195dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.alejandro.demo_mockups.MainActivity"
+        tools:showIn="@layout/app_bar_main">
 
-    <Button
-        android:text="Clasificacion Constructores"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/clasificacionC"
-        android:background="@drawable/botones_main"
-        android:layout_below="@+id/clasificacionP"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="13dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <Button
+            android:id="@+id/resultados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/botones_main"
+            android:text="Resultados" />
 
-    <Button
-        android:text="Clasificacion Pilotos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/clasificacionP"
-        android:background="@drawable/botones_main"
-        android:layout_below="@+id/calendario"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <Button
+            android:id="@+id/clasificacionC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/clasificacionP"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/botones_main"
+            android:text="Clasificacion Constructores" />
 
-    <Button
-        android:text="Calendario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/calendario"
-        android:background="@drawable/botones_main"
-        android:layout_below="@+id/circuitos"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="13dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <Button
+            android:id="@+id/clasificacionP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/calendario"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/botones_main"
+            android:text="Clasificacion Pilotos" />
 
-    <Button
-        android:text="Circuitos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/circuitos"
-        android:background="@drawable/botones_main"
-        android:layout_below="@+id/pilotos"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <Button
+            android:id="@+id/calendario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/circuitos"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/botones_main"
+            android:text="Calendario" />
 
-    <Button
-        android:text="Pilotos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pilotos"
-        android:background="@drawable/botones_main"
-        android:layout_below="@+id/equipos"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <Button
+            android:id="@+id/circuitos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/pilotos"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/botones_main"
+            android:text="Circuitos" />
 
-    <Button
-        android:text="Equipos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/equipos"
-        android:background="@drawable/botones_main"
-        android:layout_below="@+id/resultados"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <Button
+            android:id="@+id/pilotos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/equipos"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/botones_main"
+            android:text="Pilotos" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/equipos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/resultados"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/botones_main"
+            android:text="Equipos" />
+
+    </RelativeLayout>
+</ScrollView>
