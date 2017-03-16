@@ -6,29 +6,25 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:theme="@style/AppTheme"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.alejandro.demo_mockups.Detalles_Circuitos"
     tools:showIn="@layout/activity_detalles__circuitos">
 
-    <ImageView
-        android:id="@+id/imagen_extendida"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
-        android:adjustViewBounds="false"
-        android:cropToPadding="false"
-        android:transitionName="@string/nombre_transicion_imagen">
-
-    </ImageView>
+    <include
+        android:id="@+id/include"
+        layout="@layout/activity_maps_circuitos"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
     <ListView
         android:id="@+id/list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/imagen_extendida"
+        android:layout_marginTop="150dp"
         android:background="@android:color/white" />
 
 

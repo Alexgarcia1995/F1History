@@ -19,8 +19,6 @@ public class Detalles_Circuitos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles__circuitos);
         itemDetallado=Datos_Circuitos.getItem(getIntent().getIntExtra(EXTRA_PARAM_ID,0));
-        imagenExtendida=(ImageView)findViewById(R.id.imagen_extendida);
-        cargarImagenExtendida();
         listview = (ListView) findViewById(R.id.list);
         String[] values = new String[] { "Android List View",
                 "Adapter implementation",
@@ -36,10 +34,5 @@ public class Detalles_Circuitos extends AppCompatActivity {
         listview.setAdapter(adapter);
     }
 
-    private void cargarImagenExtendida() {
-        Glide.with(imagenExtendida.getContext())
-                .load(itemDetallado.getIdDrawable())
-                .into(imagenExtendida);
-    }
 
 }

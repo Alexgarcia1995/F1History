@@ -1,115 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollview"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:scrollbars="none">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#FFBDD691"
+    android:paddingBottom="16dp"
+    android:paddingEnd="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.alejandro.demo_mockups.MainActivity"
+    tools:showIn="@layout/app_bar_main">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/content_main"
+    <Button
+        android:id="@+id/resultados"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginTop="45dp"
-        android:background="#FFBDD691"
-        android:paddingBottom="195dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="com.example.alejandro.demo_mockups.MainActivity"
-        tools:showIn="@layout/app_bar_main">
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/botones_main"
+        android:text="Resultados" />
 
-        <Button
-            android:id="@+id/resultados"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/botones_main"
-            android:text="Resultados" />
+    <Button
+        android:id="@+id/clasificacionC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/clasificacionP"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/botones_main"
+        android:text="Clasificacion Constructores" />
 
-        <Button
-            android:id="@+id/clasificacionC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/clasificacionP"
-            android:layout_marginTop="13dp"
-            android:background="@drawable/botones_main"
-            android:text="Clasificacion Constructores" />
+    <Button
+        android:id="@+id/clasificacionP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/calendario"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/botones_main"
+        android:text="Clasificacion Pilotos" />
 
-        <Button
-            android:id="@+id/clasificacionP"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/calendario"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/botones_main"
-            android:text="Clasificacion Pilotos" />
+    <Button
+        android:id="@+id/calendario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/circuitos"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/botones_main"
+        android:text="Calendario" />
 
-        <Button
-            android:id="@+id/calendario"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/circuitos"
-            android:layout_marginTop="13dp"
-            android:background="@drawable/botones_main"
-            android:text="Calendario" />
+    <Button
+        android:id="@+id/circuitos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/pilotos"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/botones_main"
+        android:text="Circuitos" />
 
-        <Button
-            android:id="@+id/circuitos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/pilotos"
-            android:layout_marginTop="11dp"
-            android:background="@drawable/botones_main"
-            android:text="Circuitos" />
+    <Button
+        android:id="@+id/pilotos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/equipos"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/botones_main"
+        android:text="Pilotos" />
 
-        <Button
-            android:id="@+id/pilotos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/equipos"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/botones_main"
-            android:text="Pilotos" />
+    <Button
+        android:id="@+id/equipos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/resultados"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/botones_main"
+        android:text="Equipos" />
 
-        <Button
-            android:id="@+id/equipos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/resultados"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/botones_main"
-            android:text="Equipos" />
-
-    </RelativeLayout>
-</ScrollView>
+</RelativeLayout>

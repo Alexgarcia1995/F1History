@@ -42,5 +42,6 @@
     <string name="title_activity_detalles__circuitos">Detalles_Circuitos</string>
     <string name="title_activity_grid__list">Grid_List</string>
     <string name="title_activity_detalles__resultados">Detalles_Resultados</string>
+    <string name="title_activity_maps_circuitos">Map</string>
 
 </resources>
