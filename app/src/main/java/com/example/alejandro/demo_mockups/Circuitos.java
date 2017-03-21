@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import java.util.Map;
+
 public class Circuitos extends AppCompatActivity
     implements AdapterView.OnItemClickListener{
         private GridView gridView;
@@ -49,7 +51,7 @@ public class Circuitos extends AppCompatActivity
 
         Datos_Circuitos item = (Datos_Circuitos)parent.getItemAtPosition(position);
 
-        Intent intent = new Intent(this, Detalles_Circuitos.class);
+        Intent intent = new Intent(this, MapsCircuitos.class);
         intent.putExtra(Detalles_Pilotos.EXTRA_PARAM_ID, item.getId());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
