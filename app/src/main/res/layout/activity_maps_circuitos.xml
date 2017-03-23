@@ -1,16 +1,14 @@
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/content_detalles__circuitos"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:orientation="vertical"
-android:theme="@style/AppTheme"
-app:layout_behavior="@string/appbar_scrolling_view_behavior"
-tools:context="com.example.alejandro.demo_mockups.Detalles_Circuitos"
-tools:showIn="@layout/activity_detalles__circuitos">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_detalles__circuitos"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.alejandro.demo_mockups.Detalles_Circuitos"
+    tools:showIn="@layout/activity_detalles__circuitos">
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
@@ -19,18 +17,20 @@ tools:showIn="@layout/activity_detalles__circuitos">
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="300dp"
-        tools:context="com.example.alejandro.demo_mockups.MapsCircuitos"
-        />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="200dp"
+        tools:context="com.example.alejandro.demo_mockups.MapsCircuitos" />
 
-<ListView
-    android:id="@+id/list"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:layout_marginTop="150dp"
-    android:background="@android:color/white" />
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="250dp"
+        android:background="@android:color/white" />
 
 </RelativeLayout>
 

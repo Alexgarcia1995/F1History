@@ -14,6 +14,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -55,11 +56,13 @@ public class MapsCircuitos extends AppCompatActivity
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMapType(mMap.MAP_TYPE_SATELLITE);
         // Add a marker in Sydney and move the camera
-        LatLng SYDNEY = new LatLng(-33.87365, 151.20689);
+        LatLng SYDNEY = new LatLng(31.3389, 121.22);
         MarkerOptions marker=new MarkerOptions().position(SYDNEY)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
         mMap.addMarker(marker);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(),15));
     }
 
 }
