@@ -17,42 +17,47 @@ import java.util.ArrayList;
  */
 
 public class Adapter_Pilotos extends ArrayAdapter<Book> {
-    private Context context;
+
+
+
+
+    // View lookup cache
+    private static class ViewHolder {
+        public ImageView ivCover;
+        public TextView tvTitle;
+
+    }
 
     public Adapter_Pilotos(Context context, ArrayList<Book> aBooks) {
         super(context, 0, aBooks);
     }
 
-    private static class ViewHolder {
-        public ImageView ivCover;
-        public TextView tvTitle;
-        public TextView tvAuthor;
-
-    }
-
+    // Translates a particular `Book` given a position
+    // into a relevant row within an AdapterView
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // Get the data item for this position
         final Book book = getItem(position);
-        ViewHolder viewHolder = null;
-        if (view == null) {
+        // Check if an existing view is being reused, otherwise inflate the view
+        ViewHolder viewHolder; // view lookup cache stored in tag
+        if (convertView == null) {
             viewHolder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.activity_grid_item, viewGroup, false);
-
+            LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.content_grid_item, parent, false);
+            viewHolder.ivCover = (ImageView)convertView.findViewById(R.id.imagen_coche);
+            viewHolder.tvTitle = (TextView)convertView.findViewById(R.id.nombre_coche);
+            //viewHolder.tvAuthor = (TextView)convertView.findViewById(R.id.tvAuthor);
+            //  viewHolder.nacionalidad = (TextView)convertView.findViewById(R.id.nacionalidad);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
+        // Populate the data into the template view using the data object
+        viewHolder.tvTitle.setText(book.getTitle());
 
-        ImageView imagenCoche = (ImageView) view.findViewById(R.id.imagen_coche);
-        TextView nombreCoche = (TextView) view.findViewById(R.id.nombre_coche);
-
-        final Book  item = getItem(position);
-        Glide.with(imagenCoche.getContext())
-                .load(item.getIdDrawable())
-                .into(imagenCoche);
-
-        nombreCoche.setText(item.getname());
-
-        return view;
+        // viewHolder.nacionalidad.setText(book.getnacionalidad());
+        // Return the completed view to render on screen
+        return convertView;
     }
 
 }

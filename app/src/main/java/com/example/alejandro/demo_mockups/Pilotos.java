@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
+
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
@@ -49,9 +51,8 @@ public class Pilotos extends AppCompatActivity
 
     }
 
-    private void fetchBooks(String query) {
+    public void fetchBooks(String query) {
         // Show progress bar before making network request
-
         client = new BookClient();
         client.getBooks(query, new JsonHttpResponseHandler() {
 
@@ -90,9 +91,9 @@ public class Pilotos extends AppCompatActivity
         });
     }
 
-    public boolean onCreateOptionsMenu() {
+    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-      // getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         // final MenuItem searchItem = menu.findItem(R.id.action_search);
         //final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         //earchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
