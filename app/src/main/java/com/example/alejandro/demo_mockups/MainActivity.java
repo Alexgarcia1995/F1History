@@ -153,6 +153,8 @@ public class MainActivity extends AppCompatActivity
         resultados=(Button)findViewById(R.id.pilotos);
         resultados.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+
+                /////
                 Intent resu =new Intent(MainActivity.this,Pilotos.class);
                 startActivity(resu);
 
