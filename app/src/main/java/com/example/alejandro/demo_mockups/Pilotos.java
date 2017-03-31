@@ -24,8 +24,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Pilotos extends AppCompatActivity
-        implements AdapterView.OnItemClickListener{
+public class Pilotos extends AppCompatActivity {
     public static final String BOOK_DETAIL_KEY = "MRData";
     private BookClient client;
     private GridView gridView;
@@ -47,8 +46,7 @@ public class Pilotos extends AppCompatActivity
         gridView=(GridView)findViewById(R.id.grid);
         adapter=new Adapter_Pilotos(this,aBooks);
         gridView.setAdapter(adapter);
-        gridView.setOnItemClickListener(this);
-
+        setupBookSelectedListener();
     }
 
     public void fetchBooks(String query) {
@@ -133,11 +131,9 @@ public class Pilotos extends AppCompatActivity
 
 
     }
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+   /* public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        Datos_Pilotos item = (Datos_Pilotos)parent.getItemAtPosition(position);
-
+        Book item = (Book)parent.getItemAtPosition(position);
         Intent intent = new Intent(this, Detalles_Pilotos.class);
         intent.putExtra(Detalles_Pilotos.EXTRA_PARAM_ID, item.getId());
 
@@ -153,6 +149,18 @@ public class Pilotos extends AppCompatActivity
             ActivityCompat.startActivity(this, intent, activityOptions.toBundle());
         } else
             startActivity(intent);
+    }
+*/
+    public void setupBookSelectedListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Launch the detail view passing book as an extra
+                Intent intent = new Intent(Pilotos.this, Detalles_Pilotos.class);
+                intent.putExtra(BOOK_DETAIL_KEY, adapter.getItem(position));
+                startActivity(intent);
+            }
+        });
     }
 
     }

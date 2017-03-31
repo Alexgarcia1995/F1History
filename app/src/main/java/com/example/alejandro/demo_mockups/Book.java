@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class Book implements Serializable {
     private int idDrawable;
+    private String nombre;
     private String openLibraryId;
     private String author;
     private String title;
@@ -78,7 +79,7 @@ public class Book implements Serializable {
         try {
             book.title = jsonObject.has("driverId") ? jsonObject.getString("driverId") : "";
             book.permanentNumber = jsonObject.has("permanentNumber") ? jsonObject.getString("permanentNumber") : "";
-            book.name = jsonObject.has("givenName") ? jsonObject.getString("driverId") : "";
+            book.name = jsonObject.has("givenName") ? jsonObject.getString("givenName") : "";
             book.alias = jsonObject.has("familyName") ? jsonObject.getString("familyName") : "";
             book.datebirth = jsonObject.has("dateOfBirth") ? jsonObject.getString("dateOfBirth") : "";
             book.nacionalidad = jsonObject.has("nationality") ? jsonObject.getString("nationality") : "";
@@ -124,5 +125,24 @@ public class Book implements Serializable {
             }
         }
         return books;
+    }
+
+    public int getId() {
+        return nombre.hashCode();
+    }
+
+    /**
+     * Obtiene item basado en su identificador
+     *
+     * @param id identificador
+     * @return Coche
+     */
+    public static Book getItem(int id) {
+        for (Book item : ITEMS) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
     }
 }

@@ -1,44 +1,57 @@
 package com.example.alejandro.demo_mockups;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
+import android.view.Menu;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-public class Detalles_Pilotos extends AppCompatActivity {
+public class Detalles_Pilotos extends ActionBarActivity {
     public static final String EXTRA_PARAM_ID = "com.herprogramacion.coches2015.extra.ID";
     public static final String VIEW_NAME_HEADER_IMAGE = "imagen_compartida";
-    private Datos_Pilotos itemDetallado;
+    private Book itemDetallado;
     private ImageView imagenExtendida;
-    private ListView listview;
+    private TextView nombre;
+    private TextView nacionalidad;
+    private TextView nacimiento;
+    private TextView numero;
+    private TextView enlace;
+    private BookClient client;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles__pilotos);
-        itemDetallado=Datos_Pilotos.getItem(getIntent().getIntExtra(EXTRA_PARAM_ID,0));
-        imagenExtendida=(ImageView)findViewById(R.id.imagen_extendida);
-        cargarImagenExtendida();
-        listview = (ListView) findViewById(R.id.list);
-        String[] values = new String[] { "Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View"
-        };
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
-        listview.setAdapter(adapter);
+        //imagenExtendida=(ImageView)findViewById(R.id.imagen_extendida);
+       // cargarImagenExtendida();
+        nombre = (TextView) findViewById(R.id.nom);
+        nacimiento = (TextView) findViewById(R.id.birth);
+        nacionalidad = (TextView) findViewById(R.id.nacionalidad);
+        numero = (TextView) findViewById(R.id.numero);
+        enlace = (TextView) findViewById(R.id.enlace);
+        Book book = (Book) getIntent().getSerializableExtra(Pilotos.BOOK_DETAIL_KEY);
+        loadBook(book);
     }
     
     private void cargarImagenExtendida() {
         Glide.with(imagenExtendida.getContext())
                 .load(itemDetallado.getIdDrawable())
                 .into(imagenExtendida);
+    }
+
+    private void loadBook(Book book) {
+        nombre.setText(book.getname() + " " + book.getalias());
+        nacionalidad.setText(book.getnacionalidad());
+        nacimiento.setText(book.getdatebirth());
+        numero.setText(book.getpermanentNumber());
+        enlace.setText(book.getlink());
+
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 }
