@@ -138,8 +138,8 @@
             android:name=".MapsCircuitos"
             android:label="@string/title_activity_maps_circuitos"
             android:parentActivityName=".Circuitos"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alejandro.demo_mockups.Circuitos" />

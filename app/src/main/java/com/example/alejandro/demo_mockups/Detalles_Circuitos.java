@@ -25,23 +25,6 @@ public class Detalles_Circuitos extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles__circuitos);
-        itemDetallado = Datos_Circuitos.getItem(getIntent().getIntExtra(EXTRA_PARAM_ID, 0));
-        listview = (ListView) findViewById(R.id.list);
-        String[] values = new String[]{"Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View"
-        };
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
-        listview.setAdapter(adapter);
-
-        Intent intent=new Intent(this,MapsCircuitos.class);
-        startService(intent);
 
     }
 

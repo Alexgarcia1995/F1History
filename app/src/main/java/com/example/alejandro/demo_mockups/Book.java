@@ -12,8 +12,6 @@ import java.util.ArrayList;
 public class Book implements Serializable {
     private int idDrawable;
     private String nombre;
-    private String openLibraryId;
-    private String author;
     private String title;
     private String permanentNumber;
     private String name;
@@ -30,17 +28,11 @@ public class Book implements Serializable {
     public int getIdDrawable() {
         return idDrawable;
     }
-    public String getOpenLibraryId() {
-        return openLibraryId;
-    }
 
     public String getTitle() {
         return title;
     }
 
-    public String getAuthor() {
-        return author;
-    }
     public String getpermanentNumber() {
         return permanentNumber;
     }

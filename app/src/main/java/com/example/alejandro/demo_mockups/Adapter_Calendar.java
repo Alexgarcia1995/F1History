@@ -5,41 +5,38 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
 /**
- * Created by jordi on 12/03/2017.
+ * Created by Alejandro on 04/04/2017.
  */
 
-public class Adapter_Circuitos extends ArrayAdapter<Datos_Circuitos> {
+public class Adapter_Calendar extends ArrayAdapter<Datos_Calendar> {
 
-    public Adapter_Circuitos(Context context, ArrayList<Datos_Circuitos> circuito) {
+
+    public Adapter_Calendar(Context context, ArrayList<Datos_Calendar> circuito) {
         super(context, 0, circuito);
     }
     private static class ViewHolder {
-        public ImageView ivCover;
+        public TextView ivCover;
         public TextView tvTitle;
 
     }
 
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        final Datos_Circuitos circuit = getItem(position);
+        final Datos_Calendar circuit = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
-        Adapter_Circuitos.ViewHolder viewHolder; // view lookup cache stored in tag
+        Adapter_Calendar.ViewHolder viewHolder; // view lookup cache stored in tag
         if (convertView == null) {
-            viewHolder = new Adapter_Circuitos.ViewHolder();
+            viewHolder = new Adapter_Calendar.ViewHolder();
             LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.content_grid_item, parent, false);
-            viewHolder.ivCover = (ImageView)convertView.findViewById(R.id.imagen_coche);
-            viewHolder.tvTitle = (TextView)convertView.findViewById(R.id.nombre_coche);
+            convertView = inflater.inflate(R.layout.content_grid__list, parent, false);
+            viewHolder.ivCover = (TextView) convertView.findViewById(R.id.nom);
+            viewHolder.tvTitle = (TextView)convertView.findViewById(R.id.date);
             //viewHolder.tvAuthor = (TextView)convertView.findViewById(R.id.tvAuthor);
             //  viewHolder.nacionalidad = (TextView)convertView.findViewById(R.id.nacionalidad);
             convertView.setTag(viewHolder);
@@ -47,7 +44,8 @@ public class Adapter_Circuitos extends ArrayAdapter<Datos_Circuitos> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         // Populate the data into the template view using the data object
-        viewHolder.tvTitle.setText(circuit.getID());
+        viewHolder.ivCover.setText(circuit.getNomcamp());
+        viewHolder.tvTitle.setText(circuit.getData());
 
         // viewHolder.nacionalidad.setText(book.getnacionalidad());
         // Return the completed view to render on screen

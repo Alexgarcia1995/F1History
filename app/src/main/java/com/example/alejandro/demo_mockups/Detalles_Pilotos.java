@@ -2,12 +2,9 @@ package com.example.alejandro.demo_mockups;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 
 public class Detalles_Pilotos extends ActionBarActivity {
     public static final String EXTRA_PARAM_ID = "com.herprogramacion.coches2015.extra.ID";
@@ -24,9 +21,7 @@ public class Detalles_Pilotos extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles__pilotos);
-        //imagenExtendida=(ImageView)findViewById(R.id.imagen_extendida);
-       // cargarImagenExtendida();
-        nombre = (TextView) findViewById(R.id.nom);
+        nombre = (TextView) findViewById(R.id.date);
         nacimiento = (TextView) findViewById(R.id.birth);
         nacionalidad = (TextView) findViewById(R.id.nacionalidad);
         numero = (TextView) findViewById(R.id.numero);
@@ -34,12 +29,7 @@ public class Detalles_Pilotos extends ActionBarActivity {
         Book book = (Book) getIntent().getSerializableExtra(Pilotos.BOOK_DETAIL_KEY);
         loadBook(book);
     }
-    
-    private void cargarImagenExtendida() {
-        Glide.with(imagenExtendida.getContext())
-                .load(itemDetallado.getIdDrawable())
-                .into(imagenExtendida);
-    }
+
 
     private void loadBook(Book book) {
         nombre.setText(book.getname() + " " + book.getalias());

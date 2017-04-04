@@ -13,4 +13,14 @@
     tools:context="com.example.alejandro.demo_mockups.Calendario"
     tools:showIn="@layout/activity_calendario">
 
+    <GridView
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="300dp"
+        android:horizontalSpacing="10dp"
+        android:numColumns="auto_fit"
+        android:scrollbars="none"
+        android:verticalSpacing="10dp"
+        android:listSelector="@android:color/transparent"/>
 </RelativeLayout>
