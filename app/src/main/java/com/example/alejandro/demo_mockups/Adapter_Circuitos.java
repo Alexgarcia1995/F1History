@@ -5,11 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -40,8 +37,7 @@ public class Adapter_Circuitos extends ArrayAdapter<Datos_Circuitos> {
             convertView = inflater.inflate(R.layout.content_grid_item, parent, false);
             viewHolder.ivCover = (ImageView)convertView.findViewById(R.id.imagen_coche);
             viewHolder.tvTitle = (TextView)convertView.findViewById(R.id.nombre_coche);
-            //viewHolder.tvAuthor = (TextView)convertView.findViewById(R.id.tvAuthor);
-            //  viewHolder.nacionalidad = (TextView)convertView.findViewById(R.id.nacionalidad);
+
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

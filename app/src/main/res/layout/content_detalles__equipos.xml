@@ -2,35 +2,60 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_detalles__pilotos"
+    android:id="@+id/content_detalles__equipos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.alejandro.demo_mockups.Detalles_Pilotos"
-    tools:showIn="@layout/activity_detalles__pilotos"
-    android:orientation="vertical">
+    tools:context="com.example.alejandro.demo_mockups.Detalles_Equipos"
+    tools:showIn="@layout/activity_detalles__equipos">
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imagen_extendida"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/nacionalidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/birth"
+        android:layout_alignStart="@+id/birth"
+        android:layout_below="@+id/birth"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="55dp"
+        android:text="TextView"
+        android:textAlignment="viewStart" />
 
     <ImageView
         android:id="@+id/imagen_extendida"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:transitionName="@string/nombre_transicion_imagen"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:transitionName="@string/nombre_transicion_imagen">
 
     </ImageView>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/list"
-        android:background="@android:color/white"
-        android:layout_below="@+id/imagen_extendida"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="1dp" />
+    <TextView
+        android:id="@+id/enlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/numero"
+        android:layout_alignStart="@+id/numero"
+        android:layout_below="@+id/numero"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:text="TextView" />
 
 
 </RelativeLayout>

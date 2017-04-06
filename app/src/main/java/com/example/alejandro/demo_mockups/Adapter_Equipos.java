@@ -4,57 +4,58 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import java.util.ArrayList;
 
 /**
- * Created by rosagandia on 11/03/2017.
+ * Created by Alejandro on 10/03/2017.
  */
 
-public class Adapter_Equipos extends BaseAdapter{
-    private Context context;
+public class Adapter_Equipos extends ArrayAdapter<Datos_Equipos> {
 
-    public Adapter_Equipos(Context context) {
-        this.context = context;
+
+
+
+    // View lookup cache
+    private static class ViewHolder {
+        public ImageView ivCover;
+        public TextView tvTitle;
+
     }
 
-    @Override
-    public int getCount() {
-        return Datos_Equipos.ITEMS.length;
+    public Adapter_Equipos(Context context, ArrayList<Datos_Equipos> aBooks) {
+        super(context, 0, aBooks);
     }
 
+    // Translates a particular `Book` given a position
+    // into a relevant row within an AdapterView
     @Override
-    public Datos_Equipos getItem(int position) {
-        return Datos_Equipos.ITEMS[position];
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return getItem(position).getId();
-    }
-
-    @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
-
-        if (view == null) {
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.activity_grid_item, viewGroup, false);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // Get the data item for this position
+        final Datos_Equipos datos = getItem(position);
+        // Check if an existing view is being reused, otherwise inflate the view
+        ViewHolder viewHolder; // view lookup cache stored in tag
+        if (convertView == null) {
+            viewHolder = new ViewHolder();
+            LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.content_grid_item, parent, false);
+            viewHolder.ivCover = (ImageView)convertView.findViewById(R.id.imagen_coche);
+            viewHolder.tvTitle = (TextView)convertView.findViewById(R.id.nombre_coche);
+            //viewHolder.tvAuthor = (TextView)convertView.findViewById(R.id.tvAuthor);
+            //  viewHolder.nacionalidad = (TextView)convertView.findViewById(R.id.nacionalidad);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
+        // Populate the data into the template view using the data object
+        viewHolder.tvTitle.setText(datos.getTitle());
 
-        ImageView imagenCoche = (ImageView) view.findViewById(R.id.imagen_coche);
-        TextView nombreCoche = (TextView) view.findViewById(R.id.nombre_coche);
-
-        final Datos_Equipos  item = getItem(position);
-        Glide.with(imagenCoche.getContext())
-                .load(item.getIdDrawable())
-                .into(imagenCoche);
-
-        nombreCoche.setText(item.getNombre());
-
-        return view;
+        // viewHolder.nacionalidad.setText(book.getnacionalidad());
+        // Return the completed view to render on screen
+        return convertView;
     }
+
 }

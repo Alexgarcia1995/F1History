@@ -1,41 +1,115 @@
 package com.example.alejandro.demo_mockups;
 
+import android.text.TextUtils;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 /**
- * Created by rosagandia on 11/03/2017.
+ * Created by jordi on 06/04/2017.
  */
-
-public class Datos_Equipos {
-    private String nombre;
+public class Datos_Equipos implements Serializable {
     private int idDrawable;
-
-    public Datos_Equipos(String nombre, int idDrawable) {
-        this.nombre = nombre;
+    private String nombre;
+    private String title;
+    private String permanentNumber;
+    private String name;
+    private String alias;
+    private String datebirth;
+    private String nacionalidad;
+    private String link;
+    public Datos_Equipos( int idDrawable) {
         this.idDrawable = idDrawable;
     }
+    public Datos_Equipos() {
 
-    public String getNombre() {
-        return nombre;
     }
-
     public int getIdDrawable() {
         return idDrawable;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getpermanentNumber() {
+        return permanentNumber;
+    }
+    public String getname() {
+        return name;
+    }
+    public String getalias() {
+        return alias;
+    }
+    public String getdatebirth() {
+        return datebirth;
+    }
+    public String getnacionalidad() {
+        return nacionalidad;
+    }
+    public String getlink() {
+        return link;
+    }
+    // Get medium sized book cover from covers API
+
+
+    // Returns a Book given the expected JSON
+    public static Datos_Equipos fromJson(JSONObject jsonObject) {
+        Datos_Equipos datos = new Datos_Equipos();
+        try {
+            datos.title = jsonObject.has("constructorId") ? jsonObject.getString("constructorId") : "";
+            datos.name = jsonObject.has("name") ? jsonObject.getString("name") : "";
+            datos.nacionalidad = jsonObject.has("nationality") ? jsonObject.getString("nationality") : "";
+            datos.link = jsonObject.has("url") ? jsonObject.getString("url") : "";
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+        // Return new object
+        return datos;
+    }
+    // Return comma separated author list when there is more than one author
+    private static String getAuthor(final JSONObject jsonObject) {
+        try {
+          //  final JSONArray authors = jsonObject.getJSONArray("author_name");
+            final JSONArray authors = jsonObject.getJSONArray("driverId");
+            int numAuthors = authors.length();
+            final String[] authorStrings = new String[numAuthors];
+            for (int i = 0; i < numAuthors; ++i) {
+                authorStrings[i] = authors.getString(i);
+            }
+            return TextUtils.join(", ", authorStrings);
+        } catch (JSONException e) {
+            return "";
+        }
+    }
+    // Decodes array of book json results into business model objects
+    public static ArrayList<Datos_Equipos> fromJson(JSONArray jsonArray) {
+        ArrayList<Datos_Equipos> datos = new ArrayList<Datos_Equipos>(jsonArray.length());
+        // Process each result in json array, decode and convert to business
+        // object
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject datosJson = null;
+            try {
+                datosJson = jsonArray.getJSONObject(i);
+            } catch (Exception e) {
+                e.printStackTrace();
+                continue;
+            }
+            Datos_Equipos Datos = Datos_Equipos.fromJson(datosJson);
+            if (Datos != null) {
+                datos.add(Datos);
+            }
+        }
+        return datos;
     }
 
     public int getId() {
         return nombre.hashCode();
     }
-
-    public static Datos_Equipos[] ITEMS = {
-            new Datos_Equipos("Mercedes AMG-GT", R.drawable.mercedes_benz_amg_gt),
-            new Datos_Equipos("Mazda MX-5", R.drawable.mazda_mx5_2015),
-            new Datos_Equipos("Porsche 911 GTS", R.drawable.porsche_911_gts),
-            new Datos_Equipos("BMW Serie 6", R.drawable.bmw_serie6_cabrio_2015),
-            new Datos_Equipos("Ford Mondeo", R.drawable.ford_mondeo),
-            new Datos_Equipos("Volvo V60 Cross Country", R.drawable.volvo_v60_crosscountry),
-            new Datos_Equipos("Jaguar XE", R.drawable.jaguar_xe),
-            new Datos_Equipos("VW Golf R Variant", R.drawable.volkswagen_golf_r_variant_2015),
-            new Datos_Equipos("Seat León ST Cupra", R.drawable.seat_leon_st_cupra),
-    };
 
     /**
      * Obtiene item basado en su identificador
@@ -43,12 +117,4 @@ public class Datos_Equipos {
      * @param id identificador
      * @return Coche
      */
-    public static Datos_Equipos getItem(int id) {
-        for (Datos_Equipos item : ITEMS) {
-            if (item.getId() == id) {
-                return item;
-            }
-        }
-        return null;
-    }
 }
