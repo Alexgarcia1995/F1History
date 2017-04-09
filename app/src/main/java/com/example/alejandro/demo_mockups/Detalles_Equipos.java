@@ -26,9 +26,7 @@ public class Detalles_Equipos extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles__equipos);
         nombre = (TextView) findViewById(R.id.date);
-        //nacimiento = (TextView) findViewById(R.id.birth);
         nacionalidad = (TextView) findViewById(R.id.nacionalidad);
-        //numero = (TextView) findViewById(R.id.numero);
         enlace = (TextView) findViewById(R.id.enlace);
         Datos_Equipos datos = (Datos_Equipos) getIntent().getSerializableExtra(Equipos.BOOK_DETAIL_KEY);
         loaddatos(datos);
@@ -36,6 +34,7 @@ public class Detalles_Equipos extends ActionBarActivity {
 
 
     private void loaddatos(Datos_Equipos datos) {
+        this.setTitle(datos.getTitle());
         nombre.setText(datos.getname());
         nacionalidad.setText(datos.getnacionalidad());
         enlace.setText(Html.fromHtml("<a href="+datos.getlink()+"> Descripción"));

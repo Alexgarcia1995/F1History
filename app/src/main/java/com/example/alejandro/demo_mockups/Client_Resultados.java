@@ -7,15 +7,15 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 /**
- * Created by Alejandro on 02/04/2017.
+ * Created by jordi on 06/04/2017.
  */
 
-public class Client_Circuits {
+public class Client_Resultados {
 
     private static final String API_BASE_URL = "http://ergast.com/api/f1/";
     private AsyncHttpClient client;
 
-    public Client_Circuits() {
+    public Client_Resultados() {
         this.client = new AsyncHttpClient();
     }
 
@@ -24,14 +24,14 @@ public class Client_Circuits {
     }
 
     // Method for accessing the search API
-    public void getCircuits(final String query, JsonHttpResponseHandler handler) {
+    public void getCalendar(final String query, JsonHttpResponseHandler handler) {
         String url;
         try {
             if (query==""){
-                url = getApiUrl("1950");
+                url = getApiUrl("2017");
 
             }else {
-                url = getApiUrl("1950/");
+                url = getApiUrl("2017");
             }
             client.get(url + URLEncoder.encode(query, "utf-8"), handler);
         } catch (UnsupportedEncodingException e) {

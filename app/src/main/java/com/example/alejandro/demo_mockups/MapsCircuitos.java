@@ -1,28 +1,19 @@
 package com.example.alejandro.demo_mockups;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MapStyleOptions;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import org.json.JSONObject;
 
 public class MapsCircuitos extends ActionBarActivity
         implements OnMapReadyCallback{
@@ -54,10 +45,13 @@ public class MapsCircuitos extends ActionBarActivity
     }
 
     private void loadcircuito(Datos_Circuitos circuito) {
+        this.setTitle(circuito.getID());
         nombre.setText(circuito.getNomcirc());
         localidad.setText(circuito.getLocalidad());
         pais.setText(circuito.getPais());
-        url.setText(circuito.getLink());
+        url.setText(Html.fromHtml("<a href="+circuito.getLink()+"> Historia del Circuito"));
+        url.setMovementMethod(LinkMovementMethod.getInstance());
+       // url.setText(circuito.getLink());
         lat= Float.parseFloat(circuito.getLat());
         longi=Float.parseFloat(circuito.getLongi());
     }

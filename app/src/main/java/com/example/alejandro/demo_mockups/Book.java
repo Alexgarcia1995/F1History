@@ -51,6 +51,13 @@ public class Book implements Serializable {
     public String getlink() {
         return link;
     }
+    public String getimagen(){
+
+        if (getname()=="Jan"){
+            return "http://formula1.lne.es/media/pilotos/medium/kevin-magnussen.jpg";
+        }
+        return "http://formula1.lne.es/media/pilotos/medium/" + getname().toLowerCase() + "-" + getTitle() + ".jpg";
+    }
     // Get medium sized book cover from covers API
     public static Book[] ITEMS = {
             new Book(R.drawable.jaguar_f_type_2015),

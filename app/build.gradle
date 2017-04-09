@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.2'
     defaultConfig {
         applicationId "com.example.alejandro.demo_mockups"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -32,5 +32,6 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.6'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.android.gms:play-services-maps:10.2.0'
+    compile 'com.squareup.picasso:picasso:2.4.0'
     testCompile 'junit:junit:4.12'
 }

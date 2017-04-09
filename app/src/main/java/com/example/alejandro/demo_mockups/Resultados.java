@@ -1,25 +1,27 @@
 package com.example.alejandro.demo_mockups;
 
-import android.app.ActionBar;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.MenuItem;
+import android.view.Menu;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.GridView;
+
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class Resultados extends AppCompatActivity {
-    ListView listview;
+    public static final String BOOK_DETAIL_KEY = "MRData";
+    private GridView gridView;
+    private Adapter_Resultados adapter_resultados;
+    private Client_Resultados datos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,32 +35,14 @@ public class Resultados extends AppCompatActivity {
                 finish();
             }
         });
-        listview = (ListView) findViewById(R.id.list);
-        String[] values = new String[]{"Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View"
-        };
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
-        listview.setAdapter(adapter);
-
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> a,
-                                    View v, int position, long id) {
-                Detalles_Resultados.valores=position;
-                Intent intent = new Intent(v.getContext(), Detalles_Resultados.class);
-                startActivity(intent);
-            }
-        });
+        ArrayList<Datos_Resultados> resultados = new ArrayList<Datos_Resultados>();
+        gridView = (GridView) findViewById(R.id.grid);
+        adapter_resultados = new Adapter_Resultados(this, resultados);
+        gridView.setAdapter(adapter_resultados);
     }
     private void setupActionBar(){
 
-        android.support.v7.app.ActionBar actionBar =getSupportActionBar();
+        ActionBar actionBar =getSupportActionBar();
         if (actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
@@ -66,4 +50,51 @@ public class Resultados extends AppCompatActivity {
 
     }
 
+    public void fetchBooks(String query) {
+        // Show progress bar before making network request
+        datos = new Client_Resultados();
+        datos.getCalendar(query, new JsonHttpResponseHandler() {
+
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    // hide progress bar
+
+                    JSONObject primero = null;
+                    JSONObject segundo = null;
+                    JSONArray tercero = null;
+                    if (response != null) {
+                        // Get the docs json array
+                        primero = response.getJSONObject("MRData");
+                        segundo = primero.getJSONObject("RaceTable");
+                        tercero = segundo.getJSONArray("Races");
+
+                        // Remove all books from the adapter_circuitos
+                        final ArrayList<Datos_Resultados> resultado = Datos_Resultados.fromJson(tercero);
+                        adapter_resultados.clear();
+                        // Load model objects into the adapter_circuitos
+
+                        for (Datos_Resultados result : resultado) {
+                            adapter_resultados.add(result); // add book through the adapter_circuitos
+                        }
+
+                        adapter_resultados.notifyDataSetChanged();
+                    }
+                } catch (JSONException e) {
+                    // Invalid JSON format, show appropriate error.
+                    e.printStackTrace();
+                }
+            }
+
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+
+            }
+        });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        String query = ".json";
+        fetchBooks(query);
+        return true;
+    }
 }
