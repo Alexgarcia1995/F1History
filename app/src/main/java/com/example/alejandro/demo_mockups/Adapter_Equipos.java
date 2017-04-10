@@ -1,12 +1,15 @@
 package com.example.alejandro.demo_mockups;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -52,7 +55,7 @@ public class Adapter_Equipos extends ArrayAdapter<Datos_Equipos> {
         }
         // Populate the data into the template view using the data object
         viewHolder.tvTitle.setText(datos.getTitle());
-
+        Picasso.with(getContext()).load(Uri.parse(datos.getimagen())).into(viewHolder.ivCover);
         // viewHolder.nacionalidad.setText(book.getnacionalidad());
         // Return the completed view to render on screen
         return convertView;

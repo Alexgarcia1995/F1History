@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_detalles__pilotos"
+    android:background="#66000000"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -14,43 +15,53 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imagen_extendida"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:text="TextView" />
+        android:layout_alignLeft="@+id/nacionalidad"
+        android:layout_alignStart="@+id/nacionalidad"
+        android:layout_centerVertical="true"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/birth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="TextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/date"
-        android:layout_alignLeft="@+id/date"
-        android:layout_alignStart="@+id/date" />
+        android:layout_marginLeft="121dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="30dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/nacionalidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:text="TextView"
-        android:layout_below="@+id/birth"
         android:layout_alignLeft="@+id/birth"
-        android:layout_alignStart="@+id/birth" />
+        android:layout_alignStart="@+id/birth"
+        android:layout_below="@+id/birth"
+        android:layout_marginTop="18dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
 
     <ImageView
         android:id="@+id/imagen_extendida"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:transitionName="@string/nombre_transicion_imagen"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:transitionName="@string/nombre_transicion_imagen">
 
     </ImageView>
 
@@ -58,11 +69,14 @@
         android:id="@+id/numero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:layout_below="@+id/nacionalidad"
         android:layout_alignLeft="@+id/nacionalidad"
-        android:layout_alignStart="@+id/nacionalidad" />
+        android:layout_alignStart="@+id/nacionalidad"
+        android:layout_below="@+id/nacionalidad"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/enlace"
@@ -71,8 +85,11 @@
         android:layout_alignLeft="@+id/numero"
         android:layout_alignStart="@+id/numero"
         android:layout_below="@+id/numero"
-        android:layout_marginTop="7dp"
-        android:text="TextView" />
+        android:layout_marginTop="15dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
 
 
 </RelativeLayout>

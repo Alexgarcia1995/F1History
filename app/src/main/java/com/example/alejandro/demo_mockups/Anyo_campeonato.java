@@ -31,8 +31,7 @@ public class Anyo_campeonato extends AppCompatActivity {
         setSupportActionBar(toolbar);
         setupActionBar();
     }
-
-
+   
     private void setupActionBar(){
 
     ActionBar actionBar =getSupportActionBar();

@@ -53,11 +53,18 @@ public class Book implements Serializable {
     }
     public String getimagen(){
 
-        if (getname()=="Jan"){
+        if (getname().equals("Kevin")){
             return "http://formula1.lne.es/media/pilotos/medium/kevin-magnussen.jpg";
+        }else if (getname().equals("Jolyon")){
+            return "http://formula1.lne.es/media/pilotos/medium/jolyon-palmer.jpg";
+        }else if (getname().equals("Max")){
+            return "http://formula1.lne.es/media/pilotos/medium/max-verstappen.jpg";
+        }else if (getname().equals("Antonio")){
+            return "http://formula1.lne.es/media/pilotos/medium/pascal-wehrlein.jpg";
         }
-        return "http://formula1.lne.es/media/pilotos/medium/" + getname().toLowerCase() + "-" + getTitle() + ".jpg";
-    }
+            return "http://formula1.lne.es/media/pilotos/medium/" + getname().toLowerCase() + "-" + getTitle() + ".jpg";
+        }
+
     // Get medium sized book cover from covers API
     public static Book[] ITEMS = {
             new Book(R.drawable.jaguar_f_type_2015),

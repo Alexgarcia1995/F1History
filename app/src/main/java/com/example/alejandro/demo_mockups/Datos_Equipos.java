@@ -53,6 +53,9 @@ public class Datos_Equipos implements Serializable {
     public String getlink() {
         return link;
     }
+    public String getimagen (){
+        return "http://formula1.lne.es/media/escuderias/medium/"+getTitle()+".jpg";
+    }
     // Get medium sized book cover from covers API
 
 

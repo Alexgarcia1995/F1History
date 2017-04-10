@@ -74,6 +74,11 @@ public class Datos_Circuitos implements Serializable {
         return id;
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     public String getImagen() {
         switch (getID()){
             case "indianapolis":
@@ -220,7 +225,7 @@ public class Datos_Circuitos implements Serializable {
                 break;
 
         }
-        if (getID()=="phoenix") {
+        if (getID().equals("phoenix")) {
                 urlpower = "http://www.allf1.info/tracks/phoenix.gif";
         }else {
             urlpower = "http://www.allf1.info/tracks/" + id1 + ".jpg";
