@@ -13,4 +13,25 @@
     tools:context="com.example.alejandro.demo_mockups.Ajustes"
     tools:showIn="@layout/activity_ajustes">
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Tipo de Mapa"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_marginTop="22dp"
+            android:layout_row="0" />
+    </GridLayout>
+
 </RelativeLayout>

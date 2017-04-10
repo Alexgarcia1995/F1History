@@ -62,7 +62,14 @@ public class MapsCircuitos extends ActionBarActivity
     }
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.setMapType(mMap.MAP_TYPE_SATELLITE);
+        switch (Ajustes.mapa){
+            case "Satelite":
+                mMap.setMapType(mMap.MAP_TYPE_SATELLITE);
+                break;
+            case "Relieve":
+                mMap.setMapType(mMap.MAP_TYPE_NORMAL);
+                break;
+        }
         // Add a marker in Sydney and move the camera
         LatLng SYDNEY = new LatLng(lat, longi);
         MarkerOptions marker=new MarkerOptions().position(SYDNEY)

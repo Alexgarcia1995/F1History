@@ -24,10 +24,10 @@ public class BookClient {
         String url;
         try {
             if (query==""){
-                 url = getApiUrl("2017");
+                 url = getApiUrl(Anyo_campeonato.anio);
 
             }else {
-                 url = getApiUrl("2017/");
+                 url = getApiUrl(Anyo_campeonato.anio+"/");
             }
             client.get(url + URLEncoder.encode(query, "utf-8"), handler);
         } catch (UnsupportedEncodingException e) {

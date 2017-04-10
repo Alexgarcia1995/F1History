@@ -28,10 +28,10 @@ public class Client_Calendar {
         String url;
         try {
             if (query==""){
-                url = getApiUrl("2010");
+                url = getApiUrl(Anyo_campeonato.anio);
 
             }else {
-                url = getApiUrl("2010");
+                url = getApiUrl(Anyo_campeonato.anio);
             }
             client.get(url + URLEncoder.encode(query, "utf-8"), handler);
         } catch (UnsupportedEncodingException e) {

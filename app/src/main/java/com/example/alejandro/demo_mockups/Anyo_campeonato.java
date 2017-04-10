@@ -1,17 +1,20 @@
 package com.example.alejandro.demo_mockups;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class Anyo_campeonato extends AppCompatActivity {
     private ArrayList<Integer> pepito;
     private RadioGroup radioGroup;
+    public static String anio="2017";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +31,19 @@ public class Anyo_campeonato extends AppCompatActivity {
             radioButton.setText(pepito.get(i).toString());
             radioGroup.addView(radioButton);
         }
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                RadioButton radioButton= (RadioButton) findViewById(checkedId);
+                anio= (String) radioButton.getText();
+                Toast.makeText(Anyo_campeonato.this, "El año ha cambiado a " + anio, Toast.LENGTH_SHORT).show();
+            }
+        });
         setSupportActionBar(toolbar);
         setupActionBar();
     }
-   
+
+
     private void setupActionBar(){
 
     ActionBar actionBar =getSupportActionBar();
