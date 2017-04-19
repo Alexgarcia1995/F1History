@@ -20,8 +20,9 @@ public class Adapter_Resultados extends ArrayAdapter<Datos_Resultados> {
         super(context, 0, resultados);
     }
     private static class ViewHolder {
-        public TextView ivCover;
-        public TextView tvTitle;
+        public TextView posicion;
+        public TextView puntos;
+        public TextView corredor;
 
     }
 
@@ -33,16 +34,18 @@ public class Adapter_Resultados extends ArrayAdapter<Datos_Resultados> {
         if (convertView == null) {
             viewHolder = new Adapter_Resultados.ViewHolder();
             LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.content_grid__list, parent, false);
-            viewHolder.ivCover = (TextView) convertView.findViewById(R.id.nom);
-            viewHolder.tvTitle = (TextView)convertView.findViewById(R.id.date);
+            convertView = inflater.inflate(R.layout.content_grid__list2, parent, false);
+            viewHolder.posicion = (TextView) convertView.findViewById(R.id.nom);
+            viewHolder.puntos = (TextView)convertView.findViewById(R.id.date);
+            viewHolder.corredor = (TextView)convertView.findViewById(R.id.corredor);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         // Populate the data into the template view using the data object
-        viewHolder.ivCover.setText(resultado.getNomcamp());
-        viewHolder.tvTitle.setText(resultado.getData());
+        viewHolder.posicion.setText(resultado.getNomcamp());
+        viewHolder.puntos.setText(resultado.getData());
+        viewHolder.corredor.setText(resultado.getCorredor()+" "+resultado.getCorredor2());
 
         // viewHolder.nacionalidad.setText(book.getnacionalidad());
         // Return the completed view to render on screen

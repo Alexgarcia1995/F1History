@@ -16,6 +16,8 @@ public class Datos_Resultados implements Serializable {
     private int idDrawable;
     private String nomcamp;
     private String data;
+    private String corredor;
+    private String corredor2;
 
     public Datos_Resultados() {
 
@@ -37,14 +39,16 @@ public class Datos_Resultados implements Serializable {
         return nombre.hashCode();
     }
 
+    public String getCorredor(){ return corredor; }
+    public String getCorredor2(){ return corredor2; }
 
     public static Datos_Resultados fromJson(JSONObject jsonObject) {
         Datos_Resultados calendar = new Datos_Resultados();
         try {
             calendar.nomcamp = jsonObject.has("position") ? jsonObject.getString("position") : "";
-            //calendar.nomcamp= jsonObject.getJSONObject("0").has("round")? jsonObject.getJSONObject("0").getString("round"):"";
             calendar.data = jsonObject.has("points") ? jsonObject.getString("points") : "";
-            //calendar.data= jsonObject.getJSONObject("0").has("season")? jsonObject.getJSONObject("0").getString("season"):"";
+            calendar.corredor = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("givenName"):"";
+            calendar.corredor2 = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("familyName"):"";
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

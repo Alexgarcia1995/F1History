@@ -62,14 +62,17 @@ public class Resultados extends AppCompatActivity {
                     JSONObject primero = null;
                     JSONObject segundo = null;
                     JSONArray tercero = null;
+                    JSONObject quinto=null;
+                    JSONArray cuarto= null;
                     if (response != null) {
                         // Get the docs json array
                         primero = response.getJSONObject("MRData");
                         segundo = primero.getJSONObject("RaceTable");
                         tercero = segundo.getJSONArray("Races");
-
+                        quinto= tercero.getJSONObject(0);
+                        cuarto = quinto.getJSONArray("Results");
                         // Remove all books from the adapter_circuitos
-                        final ArrayList<Datos_Resultados> resultado = Datos_Resultados.fromJson(tercero);
+                        final ArrayList<Datos_Resultados> resultado = Datos_Resultados.fromJson(cuarto);
                         adapter_resultados.clear();
                         // Load model objects into the adapter_circuitos
 
@@ -93,7 +96,7 @@ public class Resultados extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        String query = ".json";
+        String query = "results.json";
         fetchBooks(query);
         return true;
     }

@@ -28,10 +28,10 @@ public class Client_Resultados {
         String url;
         try {
             if (query==""){
-                url = getApiUrl("2017");
+                url = getApiUrl("current/last/");
 
             }else {
-                url = getApiUrl("2017");
+                url = getApiUrl("current/last/");
             }
             client.get(url + URLEncoder.encode(query, "utf-8"), handler);
         } catch (UnsupportedEncodingException e) {
