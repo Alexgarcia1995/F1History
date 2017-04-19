@@ -16,6 +16,7 @@ public class Datos_Calendar implements Serializable {
     private int idDrawable;
     private String nomcamp;
     private String data;
+    private  String time;
 
     public Datos_Calendar() {
 
@@ -23,6 +24,9 @@ public class Datos_Calendar implements Serializable {
 
     public String getData() {
         return data;
+    }
+    public String getTime() {
+        return time;
     }
 
     public String getNomcamp() {
@@ -43,6 +47,7 @@ public class Datos_Calendar implements Serializable {
         try {
             calendar.nomcamp = jsonObject.has("raceName") ? jsonObject.getString("raceName") : "";
             calendar.data = jsonObject.has("date") ? jsonObject.getString("date") : "";
+            calendar.time=jsonObject.has("time") ? jsonObject.getString("time") : "";
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

@@ -46,9 +46,9 @@ public class MapsCircuitos extends ActionBarActivity
 
     private void loadcircuito(Datos_Circuitos circuito) {
         this.setTitle(circuito.getID());
-        nombre.setText(circuito.getNomcirc());
-        localidad.setText(circuito.getLocalidad());
-        pais.setText(circuito.getPais());
+        nombre.setText("Nombre : "+circuito.getNomcirc());
+        localidad.setText("Localidad : "+circuito.getLocalidad());
+        pais.setText("Pais : "+circuito.getPais());
         url.setText(Html.fromHtml("<a href="+circuito.getLink()+"> Historia del Circuito"));
         url.setMovementMethod(LinkMovementMethod.getInstance());
        // url.setText(circuito.getLink());

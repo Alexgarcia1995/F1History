@@ -23,7 +23,7 @@ public class Adapter_Calendar extends ArrayAdapter<Datos_Calendar> {
     private static class ViewHolder {
         public TextView ivCover;
         public TextView tvTitle;
-
+        public TextView hora;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -37,6 +37,7 @@ public class Adapter_Calendar extends ArrayAdapter<Datos_Calendar> {
             convertView = inflater.inflate(R.layout.content_grid__list, parent, false);
             viewHolder.ivCover = (TextView) convertView.findViewById(R.id.nom);
             viewHolder.tvTitle = (TextView)convertView.findViewById(R.id.date);
+            viewHolder.hora = (TextView)convertView.findViewById(R.id.hora);
             //viewHolder.tvAuthor = (TextView)convertView.findViewById(R.id.tvAuthor);
             //  viewHolder.nacionalidad = (TextView)convertView.findViewById(R.id.nacionalidad);
             convertView.setTag(viewHolder);
@@ -46,7 +47,7 @@ public class Adapter_Calendar extends ArrayAdapter<Datos_Calendar> {
         // Populate the data into the template view using the data object
         viewHolder.ivCover.setText(circuit.getNomcamp());
         viewHolder.tvTitle.setText(circuit.getData());
-
+        viewHolder.hora.setText(circuit.getTime());
         // viewHolder.nacionalidad.setText(book.getnacionalidad());
         // Return the completed view to render on screen
         return convertView;

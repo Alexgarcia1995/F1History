@@ -4,13 +4,12 @@
     android:id="@+id/content_detalles__circuitos"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bandera"
     android:orientation="vertical"
     android:theme="@style/AppTheme"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:map="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <fragment
         android:id="@+id/mapas"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
@@ -29,14 +28,18 @@
         android:layout_marginLeft="17dp"
         android:layout_marginStart="17dp"
         android:layout_marginTop="300dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/local"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
         android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="11dp"
         android:layout_below="@+id/circnom"
         android:layout_alignLeft="@+id/circnom"
         android:layout_alignStart="@+id/circnom" />
@@ -45,8 +48,10 @@
         android:id="@+id/pais"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
         android:layout_below="@+id/local"
         android:layout_alignLeft="@+id/local"
         android:layout_alignStart="@+id/local" />
@@ -55,11 +60,13 @@
         android:id="@+id/url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_below="@+id/pais"
         android:layout_alignLeft="@+id/pais"
         android:layout_alignStart="@+id/pais"
-        android:layout_below="@+id/pais"
-        android:layout_marginTop="9dp"
-        android:text="TextView" />
+        android:layout_marginTop="11dp" />
 
 </RelativeLayout>
 
