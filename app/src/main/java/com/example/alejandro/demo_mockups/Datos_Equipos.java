@@ -54,6 +54,15 @@ public class Datos_Equipos implements Serializable {
         return link;
     }
     public String getimagen (){
+        if (getTitle().equals("force_india")){
+            return "http://formula1.lne.es/media/escuderias/medium/force-india.jpg";
+        }else if (getTitle().equals("haas")){
+            return "http://formula1.lne.es/media/escuderias/big/haas.jpg";
+        }else if (getTitle().equals("red_bull")){
+            return "http://formula1.lne.es/media/escuderias/medium/red-bull.jpg";
+        }else if (getTitle().equals("toro_rosso")){
+            return "http://formula1.lne.es/media/escuderias/medium/toro-rosso.jpg";
+        }
         return "http://formula1.lne.es/media/escuderias/medium/"+getTitle()+".jpg";
     }
     // Get medium sized book cover from covers API

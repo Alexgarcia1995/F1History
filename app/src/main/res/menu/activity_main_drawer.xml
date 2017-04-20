@@ -3,29 +3,44 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+
+        <item android:title="General">
+
+        <menu>
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Año Campeonato"
-            />
+            android:id="@+id/nav_share"
+            android:icon="@drawable/login"
+            android:title="Login" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Ajustes"
-            />
+            android:icon="@drawable/ajustes"
+            android:title="Ajustes" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Contact" />
+            android:icon="@drawable/contact"
+            android:title="Contact"  />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/about"
             android:title="About" />
+        </menu>
+        </item>
     </group>
+
+    <item android:title="Preferencias">
+        <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Login" />
+
+                android:id="@+id/nav_camera"
+                android:icon="@drawable/anio"
+                android:title="Año Campeonato"
+                />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/favoritos"
+                android:title="Favoritos" />
+        </menu>
+    </item>
 
 
 </menu>
