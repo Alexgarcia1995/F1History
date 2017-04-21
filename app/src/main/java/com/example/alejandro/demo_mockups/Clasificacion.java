@@ -31,6 +31,8 @@ public class Clasificacion extends AppCompatActivity {
     private GridView gridView;
     private Adapter_Clasificacion adapter_resultados;
     private Client_Clasificacion datos;
+    TabLayout tabs;
+    public static int valor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,14 +47,38 @@ public class Clasificacion extends AppCompatActivity {
                 finish();
             }
         });
-        TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
+        tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.addTab(tabs.newTab().setText("Pilotos"));
         tabs.addTab(tabs.newTab().setText("Equipos"));
+        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()){
+                    case 0:
+                        valor=0;
+                        fetchBooks("driverStandings.json");
+                        break;
+                    case 1:
+                        valor=1;
+                        fetchBooks("constructorStandings.json");
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
         ArrayList<Datos_Clasificacion> resultados = new ArrayList<Datos_Clasificacion>();
         gridView = (GridView) findViewById(R.id.grid);
         adapter_resultados = new Adapter_Clasificacion(this, resultados);
         gridView.setAdapter(adapter_resultados);
-
     }
 
     private void setupActionBar(){
@@ -73,7 +99,6 @@ public class Clasificacion extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     // hide progress bar
-
                     JSONObject primero = null;
                     JSONObject segundo = null;
                     JSONArray tercero = null;
@@ -82,10 +107,22 @@ public class Clasificacion extends AppCompatActivity {
                     if (response != null) {
                         // Get the docs json array
                         primero = response.getJSONObject("MRData");
-                        segundo = primero.getJSONObject("RaceTable");
-                        tercero = segundo.getJSONArray("Races");
+                        segundo = primero.getJSONObject("StandingsTable");
+                        tercero = segundo.getJSONArray("StandingsLists");
                         quinto= tercero.getJSONObject(0);
-                        cuarto = quinto.getJSONArray("QualifyingResults");
+                        switch (valor) {
+                            case 0:
+                                cuarto = quinto.getJSONArray("DriverStandings");
+                                break;
+                            case 1:
+                                cuarto = quinto.getJSONArray("ConstructorStandings");
+                                break;
+                        }
+
+
+
+
+
                         // Remove all books from the adapter_circuitos
                         final ArrayList<Datos_Clasificacion> resultado = Datos_Clasificacion.fromJson(cuarto);
                         adapter_resultados.clear();
@@ -112,9 +149,9 @@ public class Clasificacion extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-            String query = "qualifying.json";
+        String query = "";
+        query = "driverStandings.json";
             fetchBooks(query);
-
         return true;
     }
 

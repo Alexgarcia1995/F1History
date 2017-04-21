@@ -28,10 +28,10 @@ public class Client_Clasificacion {
         String url;
         try {
             if (query==""){
-                url = getApiUrl(Anyo_campeonato.anio+"/last/");
+                url = getApiUrl(Anyo_campeonato.anio+"/");
 
             }else {
-                url = getApiUrl(Anyo_campeonato.anio+"/last/");
+                url = getApiUrl(Anyo_campeonato.anio+"/");
             }
             client.get(url + URLEncoder.encode(query, "utf-8"), handler);
         } catch (UnsupportedEncodingException e) {

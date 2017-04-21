@@ -18,9 +18,6 @@ public class Datos_Clasificacion implements Serializable {
     private String numero_corredor;
     private String corredor;
     private String corredor2;
-    private String  Q1;
-    private String  Q2;
-    private String  Q3;
 
     public Datos_Clasificacion() {
 
@@ -28,15 +25,6 @@ public class Datos_Clasificacion implements Serializable {
 
     public String getnumcorredor() {
         return numero_corredor;
-    }
-    public String getQ1() {
-        return Q1;
-    }
-    public String getQ2() {
-        return Q2;
-    }
-    public String getQ3() {
-        return Q3;
     }
 
     public String getNomcamp() {
@@ -58,12 +46,18 @@ public class Datos_Clasificacion implements Serializable {
         Datos_Clasificacion calendar = new Datos_Clasificacion();
         try {
             calendar.nomcamp = jsonObject.has("position") ? jsonObject.getString("position") : "";
-             calendar.Q1 = jsonObject.has("Q1") ? jsonObject.getString("Q1") : "";
-            calendar.Q2 = jsonObject.has("Q2") ? jsonObject.getString("Q2") : "";
-            calendar.Q3 = jsonObject.has("Q3") ? jsonObject.getString("Q3") : "";
-            calendar.numero_corredor = jsonObject.has("number") ? jsonObject.getString("number") : "";
-            calendar.corredor = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("familyName"):"";
-            calendar.corredor2 = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("givenName"):"";
+            calendar.numero_corredor=jsonObject.has("points")?jsonObject.getString("points"): "";
+            switch(Clasificacion.valor){
+                case 0:
+                    calendar.corredor = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("familyName"):"";
+                    calendar.corredor2 = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("givenName"):"";
+                    break;
+                case 1:
+                    calendar.corredor = jsonObject.has("Constructor")? jsonObject.getJSONObject("Constructor").getString("name"):"";
+                    calendar.corredor2 = "";
+                    break;
+            }
+
 
         } catch (JSONException e) {
             e.printStackTrace();
