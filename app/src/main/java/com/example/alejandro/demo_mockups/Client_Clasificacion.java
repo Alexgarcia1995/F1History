@@ -10,12 +10,12 @@ import java.net.URLEncoder;
  * Created by jordi on 06/04/2017.
  */
 
-public class Client_Resultados {
+public class Client_Clasificacion {
 
     private static final String API_BASE_URL = "http://ergast.com/api/f1/";
     private AsyncHttpClient client;
 
-    public Client_Resultados() {
+    public Client_Clasificacion() {
         this.client = new AsyncHttpClient();
     }
 
@@ -28,12 +28,10 @@ public class Client_Resultados {
         String url;
         try {
             if (query==""){
-                url = getApiUrl("current/last/");
-                //url = getApiUrl(Anyo_campeonato.anio+"/last/");
+                url = getApiUrl(Anyo_campeonato.anio+"/last/");
 
             }else {
-                url = getApiUrl("current/last/");
-
+                url = getApiUrl(Anyo_campeonato.anio+"/last/");
             }
             client.get(url + URLEncoder.encode(query, "utf-8"), handler);
         } catch (UnsupportedEncodingException e) {

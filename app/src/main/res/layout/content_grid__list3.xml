@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="362dp"
+    android:layout_height="30dp">
+    <TextView
+        android:id="@+id/nom"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="5dp"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+    <TextView
+        android:id="@+id/corredor"
+        android:layout_width="75dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="127dp"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+    <TextView
+        android:id="@+id/q1"
+        android:layout_width="64dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="155dp"
+        android:text="Q1"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/q3"
+        android:layout_width="64dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginEnd="5dp"
+        android:text="Q2"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/q2"
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="221dp"
+        android:text="Q3"
+        android:textAlignment="center" />
+</FrameLayout>

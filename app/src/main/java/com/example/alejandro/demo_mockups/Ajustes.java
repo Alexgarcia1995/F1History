@@ -26,6 +26,7 @@ public class Ajustes extends AppCompatActivity {
         setupActionBar();
         String [] valor = {"Satelite","Relieve"};
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,valor);
+
         spinner=(Spinner) findViewById(R.id.spinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -33,7 +34,9 @@ public class Ajustes extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // your code here
-                mapa=spinner.getSelectedItem().toString();
+
+                    mapa = spinner.getSelectedItem().toString();
+
             }
 
             @Override
@@ -50,4 +53,36 @@ public class Ajustes extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

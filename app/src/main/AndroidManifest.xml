@@ -86,10 +86,12 @@
             android:name=".Detalles_Pilotos"
             android:label="@string/title_activity_detalles__pilotos"
             android:parentActivityName=".Pilotos"
-            android:theme="@style/AppTheme"/>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alejandro.demo_mockups.Pilotos" />
+            android:theme="@style/AppTheme" />
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.alejandro.demo_mockups.Pilotos" />
+
         <activity
             android:name=".Detalles_Equipos"
             android:label="@string/title_activity_detalles__equipos"
@@ -143,6 +145,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alejandro.demo_mockups.Circuitos" />
         </activity>
+        <activity
+            android:name=".Favoritos"
+            android:label="@string/title_activity_favoritos"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

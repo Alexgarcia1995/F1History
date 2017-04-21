@@ -47,6 +47,7 @@ public class Datos_Resultados implements Serializable {
         try {
             calendar.nomcamp = jsonObject.has("position") ? jsonObject.getString("position") : "";
             calendar.data = jsonObject.has("points") ? jsonObject.getString("points") : "";
+           // calendar.data = jsonObject.has("number") ? jsonObject.getString("number") : "";
             calendar.corredor = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("givenName"):"";
             calendar.corredor2 = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("familyName"):"";
         } catch (JSONException e) {

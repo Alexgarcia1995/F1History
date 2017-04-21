@@ -65,19 +65,7 @@ public class Book implements Serializable {
             return "http://formula1.lne.es/media/pilotos/medium/" + getname().toLowerCase() + "-" + getTitle() + ".jpg";
         }
 
-    // Get medium sized book cover from covers API
-    public static Book[] ITEMS = {
-            new Book(R.drawable.jaguar_f_type_2015),
-            new Book(R.drawable.mercedes_benz_amg_gt),
-            new Book(R.drawable.mazda_mx5_2015),
-            new Book(R.drawable.porsche_911_gts),
-            new Book(R.drawable.bmw_serie6_cabrio_2015),
-            new Book( R.drawable.ford_mondeo),
-            new Book( R.drawable.volvo_v60_crosscountry),
-            new Book( R.drawable.jaguar_xe),
-            new Book(R.drawable.volkswagen_golf_r_variant_2015),
-            new Book(R.drawable.seat_leon_st_cupra),
-    };
+
 
     // Returns a Book given the expected JSON
     public static Book fromJson(JSONObject jsonObject) {
@@ -143,12 +131,5 @@ public class Book implements Serializable {
      * @param id identificador
      * @return Coche
      */
-    public static Book getItem(int id) {
-        for (Book item : ITEMS) {
-            if (item.getId() == id) {
-                return item;
-            }
-        }
-        return null;
-    }
+
 }

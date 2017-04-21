@@ -58,7 +58,7 @@
         android:layout_height="200dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
         android:transitionName="@string/nombre_transicion_imagen">
@@ -90,6 +90,18 @@
         android:layout_below="@+id/numero"
         android:layout_alignLeft="@+id/numero"
         android:layout_alignStart="@+id/numero" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="30dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/star_big_on" />
 
 
 </RelativeLayout>

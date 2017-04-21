@@ -342,18 +342,7 @@ if (getPais()=="Spain"){
         return circuitos;
     }
 
-    public static Datos_Circuitos[] ITEMS = {
-            new Datos_Circuitos(R.drawable.jaguar_f_type_2015),
-            new Datos_Circuitos(R.drawable.mercedes_benz_amg_gt),
-            new Datos_Circuitos(R.drawable.mazda_mx5_2015),
-            new Datos_Circuitos(R.drawable.porsche_911_gts),
-            new Datos_Circuitos(R.drawable.bmw_serie6_cabrio_2015),
-            new Datos_Circuitos(R.drawable.ford_mondeo),
-            new Datos_Circuitos(R.drawable.volvo_v60_crosscountry),
-            new Datos_Circuitos(R.drawable.jaguar_xe),
-            new Datos_Circuitos(R.drawable.volkswagen_golf_r_variant_2015),
-            new Datos_Circuitos(R.drawable.seat_leon_st_cupra),
-    };
+
 
     /**
      * Obtiene item basado en su identificador
@@ -361,13 +350,6 @@ if (getPais()=="Spain"){
      * @param id identificador
      * @return Coche
      */
-    public static Datos_Circuitos getItem(int id) {
-        for (Datos_Circuitos item : ITEMS) {
-            if (item.getId() == id) {
-                return item;
-            }
-        }
-        return null;
-    }
+
 }
 
