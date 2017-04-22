@@ -44,9 +44,9 @@ public class Detalles_Equipos extends ActionBarActivity {
 
     private void loaddatos(Datos_Equipos datos) {
         this.setTitle(datos.getTitle());
-        nombre.setText("Nombre del Equipo : "+datos.getname());
-        nacionalidad.setText("Pais de Origen : "+datos.getnacionalidad());
-        enlace.setText(Html.fromHtml("<a href="+datos.getlink()+"> Descripción de "+datos.getname()));
+        nombre.setText(getText(R.string.Nombre_de_equipo)+" : "+datos.getname());
+        nacionalidad.setText(getText(R.string.Pais_de_Origen)+" : "+datos.getnacionalidad());
+        enlace.setText(Html.fromHtml("<a href="+datos.getlink()+">"+getText(R.string.Descripción_de)+" : "+datos.getname()));
         enlace.setMovementMethod(LinkMovementMethod.getInstance());
         Picasso.with(imagenExtendida.getContext()).load(Uri.parse(datos.getimagen())).into(imagenExtendida);
     }

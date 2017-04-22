@@ -61,7 +61,7 @@ public class Contact extends AppCompatActivity {
         ActionBar actionBar =getSupportActionBar();
         if (actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("Contacto");
+            actionBar.setTitle(getText(R.string.Contacto));
         }
     }
 

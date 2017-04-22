@@ -43,11 +43,11 @@ public class Detalles_Pilotos extends ActionBarActivity {
 
     private void loadBook(Book book) {
         this.setTitle(book.getalias());
-        nombre.setText("Nombre : "+book.getname() + " " + book.getalias());
-        nacionalidad.setText("Nacionalidad : "+book.getnacionalidad());
-        nacimiento.setText("Fecha Nacimiento : "+book.getdatebirth());
-        numero.setText("Numero de Carrera : "+book.getpermanentNumber());
-        enlace.setText(Html.fromHtml("<a href=" + book.getlink() + "> Biografia de "+book.getname() + " " + book.getalias()));
+        nombre.setText(getText(R.string.Nombre)+" : "+book.getname() + " " + book.getalias());
+        nacionalidad.setText(getText(R.string.Nacionalidad)+" : "+book.getnacionalidad());
+        nacimiento.setText(getText(R.string.Fecha_de_Nacimiento)+" : "+book.getdatebirth());
+        numero.setText(getText(R.string.Numero_de_Carrera)+" : "+book.getpermanentNumber());
+        enlace.setText(Html.fromHtml("<a href=" + book.getlink() + ">"+getText(R.string.Biografia_de)+" : "+book.getname() + " " + book.getalias()));
         enlace.setMovementMethod(LinkMovementMethod.getInstance());
         Picasso.with(imagenExtendida.getContext()).load(Uri.parse(book.getimagen())).into(imagenExtendida);
 

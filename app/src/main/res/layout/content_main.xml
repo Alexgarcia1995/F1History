@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="Pilotos"
+                    android:text="@string/Pilotos"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#fff"
                     android:textSize="14sp" />
@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="Calendario"
+                    android:text="@string/Calendario"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#fff"
                     android:textSize="14sp" />
@@ -132,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="Circuitos"
+                    android:text="@string/Circuitos"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#fff"
                     android:textSize="14sp" />
@@ -192,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="Resultados"
+                    android:text="@string/Resultados"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#fff"
                     android:textSize="14sp" />
@@ -225,7 +225,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="Clasificacion"
+                    android:text="@string/Clasificacion"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#fff"
                     android:textSize="13sp" />
@@ -258,7 +258,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="Equipos"
+                    android:text="@string/Equipos"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#fff"
                     android:textSize="14sp" />
@@ -272,14 +272,14 @@
         android:id="@+id/nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="15dp"
-        android:text="Proximo Evento "
+        android:text="@string/Proximo_exento"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="18dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textSize="18dp" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -329,7 +329,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="Dias"
+                    android:text="@string/Dias"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#fff"
                     android:textSize="18sp" />
@@ -361,7 +361,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="Horas"
+                    android:text="@string/Horas"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#fff"
                     android:textSize="18sp" />
@@ -393,7 +393,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="Minutos"
+                    android:text="@string/Minutos"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#fff"
                     android:textSize="18sp" />
@@ -425,7 +425,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="Segundos"
+                    android:text="@string/Segundos"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#fff"
                     android:textSize="18sp" />

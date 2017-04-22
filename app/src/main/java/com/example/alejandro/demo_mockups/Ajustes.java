@@ -24,7 +24,7 @@ public class Ajustes extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setupActionBar();
-        String [] valor = {"Satelite","Relieve"};
+        String [] valor = {(String) getText(R.string.Satelite),(String) getText(R.string.Relieve)};
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,valor);
 
         spinner=(Spinner) findViewById(R.id.spinner);

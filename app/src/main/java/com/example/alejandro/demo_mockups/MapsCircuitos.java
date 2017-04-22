@@ -46,10 +46,10 @@ public class MapsCircuitos extends ActionBarActivity
 
     private void loadcircuito(Datos_Circuitos circuito) {
         this.setTitle(circuito.getID());
-        nombre.setText("Nombre : "+circuito.getNomcirc());
-        localidad.setText("Localidad : "+circuito.getLocalidad());
-        pais.setText("Pais : "+circuito.getPais());
-        url.setText(Html.fromHtml("<a href="+circuito.getLink()+"> Historia del Circuito"));
+        nombre.setText(getText(R.string.Nombre)+" : "+circuito.getNomcirc());
+        localidad.setText(getText(R.string.Localidad)+" : "+circuito.getLocalidad());
+        pais.setText(getText(R.string.Pais)+" : "+circuito.getPais());
+        url.setText(Html.fromHtml("<a href="+circuito.getLink()+">"+getText(R.string.Historia_del_Circuito)));
         url.setMovementMethod(LinkMovementMethod.getInstance());
        // url.setText(circuito.getLink());
         lat= Float.parseFloat(circuito.getLat());

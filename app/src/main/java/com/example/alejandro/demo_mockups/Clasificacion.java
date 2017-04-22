@@ -48,8 +48,8 @@ public class Clasificacion extends AppCompatActivity {
             }
         });
         tabs = (TabLayout) findViewById(R.id.tabs);
-        tabs.addTab(tabs.newTab().setText("Pilotos"));
-        tabs.addTab(tabs.newTab().setText("Equipos"));
+        tabs.addTab(tabs.newTab().setText(getText(R.string.Pilotos)));
+        tabs.addTab(tabs.newTab().setText(getText(R.string.Equipos)));
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -118,10 +118,6 @@ public class Clasificacion extends AppCompatActivity {
                                 cuarto = quinto.getJSONArray("ConstructorStandings");
                                 break;
                         }
-
-
-
-
 
                         // Remove all books from the adapter_circuitos
                         final ArrayList<Datos_Clasificacion> resultado = Datos_Clasificacion.fromJson(cuarto);

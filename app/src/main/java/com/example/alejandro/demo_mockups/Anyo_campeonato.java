@@ -36,7 +36,7 @@ public class Anyo_campeonato extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 RadioButton radioButton= (RadioButton) findViewById(checkedId);
                 anio= (String) radioButton.getText();
-                Toast.makeText(Anyo_campeonato.this, "El año ha cambiado a " + anio, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Anyo_campeonato.this, getText(R.string.El_año_ha_cambiado_a)+" " + anio, Toast.LENGTH_SHORT).show();
             }
         });
         setSupportActionBar(toolbar);

@@ -2,6 +2,7 @@ package com.example.alejandro.demo_mockups;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
@@ -30,6 +31,7 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity
                         data=datos.has("date") ? datos.getString("date"):" ";
                         proximo_evento=datos.has("raceName") ? datos.getString("raceName"):" ";
                         // Remove all books from the adapter_circuitos
-                        evento_nombre.setText("Proximo evento"+ Html.fromHtml("<br />") + proximo_evento);
+                        evento_nombre.setText(getText(R.string.Proximo_exento)+""+ Html.fromHtml("<br />") + proximo_evento);
                         // Load model objects into the adapter_circuitos
 
 

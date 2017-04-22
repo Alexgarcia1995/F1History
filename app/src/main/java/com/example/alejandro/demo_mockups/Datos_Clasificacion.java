@@ -18,6 +18,8 @@ public class Datos_Clasificacion implements Serializable {
     private String numero_corredor;
     private String corredor;
     private String corredor2;
+    private String ganadas;
+    private String puntos;
 
     public Datos_Clasificacion() {
 
@@ -25,6 +27,12 @@ public class Datos_Clasificacion implements Serializable {
 
     public String getnumcorredor() {
         return numero_corredor;
+    }
+    public String getganadas() {
+        return ganadas;
+    }
+    public String getpuntos() {
+        return puntos;
     }
 
     public String getNomcamp() {
@@ -45,16 +53,22 @@ public class Datos_Clasificacion implements Serializable {
     public static Datos_Clasificacion fromJson(JSONObject jsonObject) {
         Datos_Clasificacion calendar = new Datos_Clasificacion();
         try {
-            calendar.nomcamp = jsonObject.has("position") ? jsonObject.getString("position") : "";
-            calendar.numero_corredor=jsonObject.has("points")?jsonObject.getString("points"): "";
+           // calendar.nomcamp = jsonObject.has("position") ? jsonObject.getString("position") : "";
+           // calendar.numero_corredor=jsonObject.has("points")?jsonObject.getString("points"): "";
             switch(Clasificacion.valor){
                 case 0:
+                    calendar.nomcamp = jsonObject.has("position") ? jsonObject.getString("position") : "";
                     calendar.corredor = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("familyName"):"";
-                    calendar.corredor2 = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("givenName"):"";
+                    calendar.numero_corredor=jsonObject.has("points")?jsonObject.getString("points"): "";
+                    calendar.ganadas=jsonObject.has("wins")?jsonObject.getString("wins"): "";
+                   // calendar.ganadas = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("wins"):"";
+                   // calendar.corredor2 = jsonObject.has("Driver")? jsonObject.getJSONObject("Driver").getString("givenName"):"";
                     break;
                 case 1:
+                    calendar.ganadas=jsonObject.has("wins")?jsonObject.getString("wins"): "";
+                    calendar.nomcamp = jsonObject.has("position") ? jsonObject.getString("position") : "";
                     calendar.corredor = jsonObject.has("Constructor")? jsonObject.getJSONObject("Constructor").getString("name"):"";
-                    calendar.corredor2 = "";
+                    calendar.numero_corredor=jsonObject.has("points")?jsonObject.getString("points"): "";
                     break;
             }
 

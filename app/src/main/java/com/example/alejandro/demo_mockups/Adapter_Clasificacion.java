@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,7 @@ public class Adapter_Clasificacion extends ArrayAdapter<Datos_Clasificacion> {
         public TextView posicion;
         public TextView numero_corredor;
         public TextView corredor;
+        public TextView ganadas;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -37,6 +39,7 @@ public class Adapter_Clasificacion extends ArrayAdapter<Datos_Clasificacion> {
             viewHolder.posicion = (TextView) convertView.findViewById(R.id.nom);
             viewHolder.numero_corredor = (TextView)convertView.findViewById(R.id.date);
             viewHolder.corredor = (TextView)convertView.findViewById(R.id.corredor);
+            viewHolder.ganadas = (TextView)convertView.findViewById(R.id.ganadas);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -44,7 +47,8 @@ public class Adapter_Clasificacion extends ArrayAdapter<Datos_Clasificacion> {
         // Populate the data into the template view using the data object
         viewHolder.posicion.setText(resultado.getNomcamp());
         viewHolder.numero_corredor.setText(resultado.getnumcorredor());
-        viewHolder.corredor.setText(resultado.getCorredor2() +""+ resultado.getCorredor());
+        viewHolder.corredor.setText(resultado.getCorredor());
+        viewHolder.ganadas.setText(resultado.getganadas());
         // viewHolder.nacionalidad.setText(book.getnacionalidad());
         // Return the completed view to render on screen
         return convertView;

@@ -18,9 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@android:color/black"
+            android:textAlignment="center"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="Año Competición"
-            android:textAlignment="center" />
+            app:title="@string/Año_Competición" />
 
     </android.support.design.widget.AppBarLayout>
 

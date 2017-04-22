@@ -23,7 +23,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="0dp"
-        android:text="Carrera"
+        android:text="@string/Carrera"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
@@ -37,7 +37,7 @@
         android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/textView7"
         android:layout_toRightOf="@+id/textView7"
-        android:text="Fecha"
+        android:text="@string/Fecha"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
@@ -49,7 +49,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Hora"
+        android:text="@string/Hora"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="18sp" />

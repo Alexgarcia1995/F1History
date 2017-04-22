@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
+    android:paddingLeft="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_vertical_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.alejandro.demo_mockups.Clasificacion">
@@ -15,44 +15,32 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="25dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="310dp"
-            android:text="Q3"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="245dp"
-            android:text="Q2"
-            android:textStyle="bold" />
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="177dp"
-            android:text="Q1"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@+id/pinto"
+            android:layout_toRightOf="@+id/pinto"
+            android:text="@string/ganadas"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/pinto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView3"
             android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/textView3"
-            android:layout_marginLeft="74dp"
-            android:layout_marginStart="74dp"
-            android:text="N.O"
+            android:layout_marginLeft="33dp"
+            android:layout_marginStart="35dp"
+            android:layout_toEndOf="@+id/textView3"
+            android:layout_toRightOf="@+id/textView3"
+            android:text="@string/Puntos"
             android:textAllCaps="false"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -62,11 +50,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="19dp"
-            android:layout_marginStart="19dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="40dp"
             android:layout_toEndOf="@+id/textView2"
             android:layout_toRightOf="@+id/textView2"
-            android:text="Corredor"
+            android:text="@string/Corredor"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -77,8 +65,10 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="20dp"
             android:paddingStart="7dp"
-            android:text="Pos"
+            android:text="@string/Pos"
             android:textSize="14sp"
             android:textStyle="bold" />
     </RelativeLayout>
@@ -93,15 +83,15 @@
             android:id="@+id/grid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:columnWidth="300dp"
             android:horizontalSpacing="10dp"
             android:listSelector="@android:color/transparent"
             android:numColumns="auto_fit"
             android:scrollbars="none"
-            android:verticalSpacing="10dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" />
+            android:verticalSpacing="10dp" />
     </RelativeLayout>
 
 </RelativeLayout>
