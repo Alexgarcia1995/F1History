@@ -1,5 +1,6 @@
 package com.example.alejandro.demo_mockups;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ public class About extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
         setSupportActionBar(toolbar);
         setupActionBar();
     }
@@ -23,7 +25,7 @@ public class About extends AppCompatActivity {
         ActionBar actionBar =getSupportActionBar();
         if (actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("About");
+            actionBar.setTitle(R.string.About);
         }
     }
 }

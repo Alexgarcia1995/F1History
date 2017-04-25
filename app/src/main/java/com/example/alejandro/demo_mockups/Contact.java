@@ -1,6 +1,7 @@
 package com.example.alejandro.demo_mockups;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -53,6 +54,8 @@ public class Contact extends AppCompatActivity {
         });
 
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getText(R.string.Contacto));
+        toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
         setupActionBar();
 
     }

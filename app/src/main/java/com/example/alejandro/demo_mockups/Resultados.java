@@ -1,5 +1,6 @@
 package com.example.alejandro.demo_mockups;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,8 @@ public class Resultados extends AppCompatActivity {
         setContentView(R.layout.activity_resultados);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getText(R.string.Resultados));
+        toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
         setupActionBar();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

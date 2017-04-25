@@ -1,6 +1,7 @@
 package com.example.alejandro.demo_mockups;
 
 import android.database.MatrixCursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -40,6 +41,8 @@ public class Clasificacion extends AppCompatActivity {
             setContentView(R.layout.activity_clasificacion);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getText(R.string.Clasificacion));
+        toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
         setupActionBar();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +53,7 @@ public class Clasificacion extends AppCompatActivity {
         tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.addTab(tabs.newTab().setText(getText(R.string.Pilotos)));
         tabs.addTab(tabs.newTab().setText(getText(R.string.Equipos)));
+        tabs.setBackgroundColor(Color.parseColor(Ajustes.color_app));
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

@@ -1,8 +1,11 @@
 package com.example.alejandro.demo_mockups;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
@@ -36,18 +39,22 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ImageButton resultados;
-    private TextView dia, horas, minutos, segundos, evento,evento_nombre;
+    private TextView dia, horas, minutos, segundos, evento, evento_nombre;
     private String proximo_evento;
     private LinearLayout linearLayout1, linearLayout2;
     private Handler handler;
     private Runnable runnable;
     private Client_Data datos;
-    private  String data;
+    private String data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        cargarPreferencias();
+        idiomas();
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -56,12 +63,13 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-       // Toast.makeText(MainActivity.this, "El año ha cambiado a " +, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(MainActivity.this, "El año ha cambiado a " +, Toast.LENGTH_SHORT).show();
         initUI();
         countDownStart();
-
-       ButtonSelected();
+        ButtonSelected();
+        //cargarPreferencias();
     }
+
 
     @Override
     public void onBackPressed() {
@@ -96,6 +104,7 @@ public class MainActivity extends AppCompatActivity
         datos.getData(query, new JsonHttpResponseHandler() {
 
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
                 try {
                     // hide progress bar
 
@@ -272,6 +281,56 @@ public class MainActivity extends AppCompatActivity
         };
         handler.postDelayed(runnable, 0);
     }
+    
+    boolean preferenciasGuardadas;
+
+    public void guardarPreferencias(){
+        SharedPreferences prefs = getSharedPreferences("preferenciasMiApp", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("preferenciasGuardadas", true);
+        editor.putString("idioma", Ajustes.idioma);
+        // editor.putString("preferencia2", "y tambien esto");
+        editor.commit();
+    }
+
+
+    public void cargarPreferencias(){
+        SharedPreferences prefs = getSharedPreferences("preferenciasMiApp", Context.MODE_PRIVATE);
+        Ajustes.idioma = prefs.getString("idioma", "es");
+        Ajustes.mapa= prefs.getString("mapa","Satelite");
+        Ajustes.color_app=prefs.getString("color","#777777");
+        //  this.preferencias2 = prefs.getString("preferencia2", "valor por defecto");
+        preferenciasGuardadas = prefs.getBoolean("preferenciasGuardadas", false);
+
+    }
+    public void idiomas(){
+        Locale localizacion = new Locale( Ajustes.idioma);
+        Locale.setDefault(localizacion);
+        Configuration config = new Configuration();
+        config.locale = localizacion;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+    }
+
+    protected void onStart() {
+        super.onStart();
+        cargarPreferencias();
+        idiomas();
+// para ver el funcionamiento, imprimimos preferencias si existen
+        String mensaje = "";
+        if (this.preferenciasGuardadas) {
+            mensaje = "Las preferencias fueron guardadas ya";
+        } else {
+            mensaje = "Las preferencias todavia no se guardaron";
+        }
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+    }
+    public void onDestroy(){
+        super.onDestroy();
+        guardarPreferencias();
+    }
+
+
+
 
 
 }

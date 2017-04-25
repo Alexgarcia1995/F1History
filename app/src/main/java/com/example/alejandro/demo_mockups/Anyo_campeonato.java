@@ -1,5 +1,6 @@
 package com.example.alejandro.demo_mockups;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.ActionBar;
@@ -40,6 +41,8 @@ public class Anyo_campeonato extends AppCompatActivity {
             }
         });
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getText(R.string.Año_Competición));
+        toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
         setupActionBar();
     }
 

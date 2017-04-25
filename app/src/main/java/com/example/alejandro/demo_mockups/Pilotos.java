@@ -1,5 +1,6 @@
 package com.example.alejandro.demo_mockups;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
@@ -35,6 +36,8 @@ public class Pilotos extends AppCompatActivity {
         setContentView(R.layout.activity_pilotos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
+        getSupportActionBar().setTitle(getText(R.string.Pilotos));
         setupActionBar();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

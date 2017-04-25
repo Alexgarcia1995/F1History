@@ -1,5 +1,6 @@
 package com.example.alejandro.demo_mockups;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,6 +31,8 @@ public class Calendario extends AppCompatActivity {
         setContentView(R.layout.activity_calendario);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getText(R.string.Calendario));
+        toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
         setupActionBar();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

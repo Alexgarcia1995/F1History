@@ -1,21 +1,28 @@
 package com.example.alejandro.demo_mockups;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class Detalles_Pilotos extends ActionBarActivity {
     public static final String EXTRA_PARAM_ID = "com.herprogramacion.coches2015.extra.ID";
     public static final String VIEW_NAME_HEADER_IMAGE = "imagen_compartida";
-    private Book itemDetallado;
+    private FloatingActionButton fab;
     private ImageView imagenExtendida;
     private TextView nombre;
     private TextView nacionalidad;
@@ -24,6 +31,7 @@ public class Detalles_Pilotos extends ActionBarActivity {
     private TextView enlace;
     private RelativeLayout padre;
     private BookClient client;
+    private Book books;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +42,17 @@ public class Detalles_Pilotos extends ActionBarActivity {
         numero = (TextView) findViewById(R.id.numero);
         enlace = (TextView) findViewById(R.id.enlace);
         padre=(RelativeLayout) findViewById(R.id.content_detalles__pilotos);
+        fab = (FloatingActionButton) findViewById(R.id.fav);
         imagenExtendida=(ImageView)findViewById(R.id.imagen_extendida);
-        Book book = (Book) getIntent().getSerializableExtra(Pilotos.BOOK_DETAIL_KEY);
-        loadBook(book);
-        load_background_Pilotos(book);
+        books = (Book) getIntent().getSerializableExtra(Pilotos.BOOK_DETAIL_KEY);
+        loadBook(books);
+        load_background_Pilotos(books);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                guardarPreferencias(books);
+            }
+        });
     }
 
 
@@ -50,7 +65,6 @@ public class Detalles_Pilotos extends ActionBarActivity {
         enlace.setText(Html.fromHtml("<a href=" + book.getlink() + ">"+getText(R.string.Biografia_de)+" : "+book.getname() + " " + book.getalias()));
         enlace.setMovementMethod(LinkMovementMethod.getInstance());
         Picasso.with(imagenExtendida.getContext()).load(Uri.parse(book.getimagen())).into(imagenExtendida);
-
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -148,4 +162,8 @@ public class Detalles_Pilotos extends ActionBarActivity {
 
     }
 
+    public void guardarPreferencias(Book book) {
+        Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show();
+        Favoritos.favs.add(book);
+    }
 }
