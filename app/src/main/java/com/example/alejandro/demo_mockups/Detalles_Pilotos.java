@@ -15,8 +15,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class Detalles_Pilotos extends ActionBarActivity {
@@ -35,6 +38,7 @@ public class Detalles_Pilotos extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        cargarPreferencias();
         setContentView(R.layout.activity_detalles__pilotos);
         nombre = (TextView) findViewById(R.id.date);
         nacimiento = (TextView) findViewById(R.id.birth);
@@ -50,7 +54,8 @@ public class Detalles_Pilotos extends ActionBarActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                guardarPreferencias(books);
+                guardarFavs(books);
+                guardarPreferencias();
             }
         });
     }
@@ -162,8 +167,39 @@ public class Detalles_Pilotos extends ActionBarActivity {
 
     }
 
-    public void guardarPreferencias(Book book) {
-        Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show();
-        Favoritos.favs.add(book);
+    public void guardarFavs(Book book) {
+        if(Favoritos.favs.isEmpty()){
+            Favoritos.favs.add(book);
+        }
+        else{
+            for (Book book1 : Favoritos.favs){
+                if(book1.equals(book)){
+                    Toast.makeText(this, "Este piloto ya esta añadido", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Favoritos.favs.add(book);
+                    Toast.makeText(this, "Piloto añadido", Toast.LENGTH_SHORT).show();
+                }
+            }
+            }
+        }
+
+
+    public void guardarPreferencias(){
+        SharedPreferences prefs = getSharedPreferences("favoritos", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json=gson.toJson(Favoritos.favs);
+        editor.putString("pilotos",json);
+        editor.commit();
+    }
+
+    public void cargarPreferencias() {
+        SharedPreferences prefs = getSharedPreferences("favoritos", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = prefs.getString("pilotos", null);
+        Type type = new TypeToken<ArrayList<Book>>() {
+        }.getType();
+        Favoritos.favs = gson.fromJson(json, type);
     }
 }

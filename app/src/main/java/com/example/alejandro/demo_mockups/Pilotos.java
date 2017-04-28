@@ -1,5 +1,7 @@
 package com.example.alejandro.demo_mockups;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
@@ -165,5 +168,4 @@ public class Pilotos extends AppCompatActivity {
             }
         });
     }
-
     }
