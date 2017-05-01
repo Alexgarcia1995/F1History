@@ -1,16 +1,26 @@
 package com.example.alejandro.demo_mockups;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 /**
  * Created by jordi on 12/03/2017.
@@ -27,18 +37,29 @@ public class Detalles_Equipos extends ActionBarActivity {
     private TextView numero;
     private TextView enlace;
     private BookClient client;
+    public static ArrayList<Datos_Equipos> favs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles__equipos);
+        favs=new ArrayList<>();
         nombre = (TextView) findViewById(R.id.date);
         nacionalidad = (TextView) findViewById(R.id.nacionalidad);
         enlace = (TextView) findViewById(R.id.enlace);
         padre=(RelativeLayout) findViewById(R.id.content_detalles__equipos);
         imagenExtendida=(ImageView)findViewById(R.id.imagen_equipo);
-        Datos_Equipos datos = (Datos_Equipos) getIntent().getSerializableExtra(Equipos.BOOK_DETAIL_KEY);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fav);
+        final Datos_Equipos datos = (Datos_Equipos) getIntent().getSerializableExtra(Equipos.BOOK_DETAIL_KEY);
         loaddatos(datos);
         load_background_Equipos(datos);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cargarPreferencias();
+                guardarFavs(datos);
+                guardarPreferencias();
+            }
+        });
     }
 
 
@@ -144,5 +165,44 @@ public class Detalles_Equipos extends ActionBarActivity {
             padre.setBackgroundResource(R.drawable.malaysian);
         }
 
+    }
+    public void guardarFavs(Datos_Equipos book) {
+        int contador=0;
+        if(favs.isEmpty()){
+            favs.add(book);
+            Toast.makeText(this, "Equipo añadido", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            for (Datos_Equipos book1 : favs){
+                if(book1.getTitle().equals(book.getTitle())){
+                    contador=1;
+                }
+            }
+            if (contador==1){
+                Toast.makeText(this, "Este equipo ya existe en favoritos", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                favs.add(book);
+                Toast.makeText(this, "Equipo añadido", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public void guardarPreferencias(){
+        SharedPreferences prefs = getSharedPreferences("favoritos", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json=gson.toJson(favs);
+        editor.putString("equipos",json);
+        editor.commit();
+    }
+
+    public void cargarPreferencias() {
+        SharedPreferences prefs = getSharedPreferences("favoritos", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = prefs.getString("equipos", null);
+        Type type = new TypeToken<ArrayList<Datos_Equipos>>() {
+        }.getType();
+        favs= gson.fromJson(json, type);
     }
 }

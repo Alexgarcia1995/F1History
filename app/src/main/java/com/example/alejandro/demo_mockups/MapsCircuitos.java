@@ -1,11 +1,16 @@
 package com.example.alejandro.demo_mockups;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,6 +19,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class MapsCircuitos extends ActionBarActivity
         implements OnMapReadyCallback{
@@ -25,9 +35,9 @@ public class MapsCircuitos extends ActionBarActivity
     private TextView localidad;
     private TextView pais;
     private TextView url;
-    private BookClient client;
     private float lat;
     private float longi;
+    public static ArrayList<Datos_Circuitos> favs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +46,22 @@ public class MapsCircuitos extends ActionBarActivity
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.mapas);
         mapFragment.getMapAsync(this);
+        favs= new ArrayList<Datos_Circuitos>();
         nombre = (TextView) findViewById(R.id.circnom);
         localidad=(TextView)findViewById(R.id.local);
         pais=(TextView)findViewById(R.id.pais);
         url=(TextView)findViewById(R.id.url);
-        Datos_Circuitos circuito= (Datos_Circuitos) getIntent().getSerializableExtra(Circuitos.BOOK_DETAIL_KEY);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fav);
+        final Datos_Circuitos circuito= (Datos_Circuitos) getIntent().getSerializableExtra(Circuitos.BOOK_DETAIL_KEY);
         loadcircuito(circuito);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cargarPreferencias();
+                guardarFavs(circuito);
+                guardarPreferencias();
+            }
+        });
     }
 
     private void loadcircuito(Datos_Circuitos circuito) {
@@ -78,4 +98,45 @@ public class MapsCircuitos extends ActionBarActivity
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(),15));
     }
 
+
+    public void guardarFavs(Datos_Circuitos book) {
+        int contador=0;
+        if(favs.isEmpty()){
+            favs.add(book);
+            Toast.makeText(this, "Circuito añadido", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            for (Datos_Circuitos book1 : favs){
+                if(book1.getID().equals(book.getID())){
+                    contador=1;
+                }
+            }
+            if (contador==1){
+                Toast.makeText(this, "Este circuito ya existe en favoritos", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                favs.add(book);
+                Toast.makeText(this, "Circuito añadido", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+    public void guardarPreferencias(){
+        SharedPreferences prefs = getSharedPreferences("favoritos", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json=gson.toJson(favs);
+        editor.putString("circuitos",json);
+        editor.commit();
+    }
+
+    public void cargarPreferencias() {
+        SharedPreferences prefs = getSharedPreferences("favoritos", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = prefs.getString("circuitos", null);
+        Type type = new TypeToken<ArrayList<Datos_Circuitos>>() {
+        }.getType();
+        favs= gson.fromJson(json, type);
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.alejandro.demo_mockups;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -35,10 +36,11 @@ public class Detalles_Pilotos extends ActionBarActivity {
     private RelativeLayout padre;
     private BookClient client;
     private Book books;
+    public static ArrayList<Book> favs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        cargarPreferencias();
+        favs= new ArrayList<Book>();
         setContentView(R.layout.activity_detalles__pilotos);
         nombre = (TextView) findViewById(R.id.date);
         nacimiento = (TextView) findViewById(R.id.birth);
@@ -54,6 +56,7 @@ public class Detalles_Pilotos extends ActionBarActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                cargarPreferencias();
                 guardarFavs(books);
                 guardarPreferencias();
             }
@@ -168,18 +171,23 @@ public class Detalles_Pilotos extends ActionBarActivity {
     }
 
     public void guardarFavs(Book book) {
-        if(Favoritos.favs.isEmpty()){
-            Favoritos.favs.add(book);
+        int contador=0;
+        if(favs.isEmpty()){
+            favs.add(book);
+            Toast.makeText(this, "Piloto añadido", Toast.LENGTH_SHORT).show();
         }
         else{
-            for (Book book1 : Favoritos.favs){
-                if(book1.equals(book)){
-                    Toast.makeText(this, "Este piloto ya esta añadido", Toast.LENGTH_SHORT).show();
+            for (Book book1 : favs){
+                if(book1.getalias().equals(book.getalias())){
+                    contador=1;
                 }
-                else {
-                    Favoritos.favs.add(book);
-                    Toast.makeText(this, "Piloto añadido", Toast.LENGTH_SHORT).show();
-                }
+            }
+            if (contador==1){
+                Toast.makeText(this, "Este piloto ya existe en favoritos", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                favs.add(book);
+                Toast.makeText(this, "Piloto añadido", Toast.LENGTH_SHORT).show();
             }
             }
         }
@@ -189,7 +197,7 @@ public class Detalles_Pilotos extends ActionBarActivity {
         SharedPreferences prefs = getSharedPreferences("favoritos", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         Gson gson = new Gson();
-        String json=gson.toJson(Favoritos.favs);
+        String json=gson.toJson(favs);
         editor.putString("pilotos",json);
         editor.commit();
     }
@@ -200,6 +208,6 @@ public class Detalles_Pilotos extends ActionBarActivity {
         String json = prefs.getString("pilotos", null);
         Type type = new TypeToken<ArrayList<Book>>() {
         }.getType();
-        Favoritos.favs = gson.fromJson(json, type);
+        favs= gson.fromJson(json, type);
     }
 }
