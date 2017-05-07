@@ -31,6 +31,7 @@ public class Favoritos extends AppCompatActivity {
     private Adapter_Circuitos circuito;
     private Adapter_Equipos equipo;
     public static final String BOOK_DETAIL_KEY = "MRData";
+    public static int valor=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,6 +222,7 @@ public class Favoritos extends AppCompatActivity {
                 // Launch the detail view passing book as an extra
                 Intent intent = new Intent(Favoritos.this, Detalles_Equipos.class);
                 intent.putExtra(BOOK_DETAIL_KEY, equipo.getItem(position));
+                valor=1;
                 startActivity(intent);
             }
         });

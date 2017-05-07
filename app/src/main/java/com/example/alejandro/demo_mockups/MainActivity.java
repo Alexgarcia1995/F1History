@@ -24,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.FacebookActivity;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
@@ -212,7 +213,7 @@ public class MainActivity extends AppCompatActivity
             Intent About=new Intent(MainActivity.this,About.class);
             startActivity(About);
         } else if (id == R.id.nav_share) {
-            Intent Login=new Intent(MainActivity.this,LoginActivity.class);
+            Intent Login=new Intent(MainActivity.this,FacebookLoginActivity.class);
             startActivity(Login);
         } else if (id == R.id.nav_send) {
             Intent Login=new Intent(MainActivity.this,Favoritos.class);

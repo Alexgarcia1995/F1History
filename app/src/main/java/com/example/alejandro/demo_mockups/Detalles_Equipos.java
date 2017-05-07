@@ -60,6 +60,13 @@ public class Detalles_Equipos extends ActionBarActivity {
                 guardarPreferencias();
             }
         });
+        if (Favoritos.valor==1){
+            fab.hide();
+        }
+        else {
+            fab.show();
+        }
+
     }
 
 
