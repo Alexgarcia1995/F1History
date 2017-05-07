@@ -10,7 +10,7 @@
         <item
             android:id="@+id/nav_share"
             android:icon="@drawable/login"
-            android:title="Logout" />
+            android:title="Login" />
             <item
                 android:id="@+id/nav_gallery"
                 android:icon="@drawable/ajustes"
@@ -27,19 +27,6 @@
         </item>
     </group>
 
-    <item android:title="Preferencias">
-        <menu>
-            <item
-
-                android:id="@+id/nav_camera"
-                android:icon="@drawable/anio"
-                android:title="@string/Año_Campeonato" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/favoritos"
-                android:title="@string/Favoritos" />
-        </menu>
-    </item>
 
 
 </menu>

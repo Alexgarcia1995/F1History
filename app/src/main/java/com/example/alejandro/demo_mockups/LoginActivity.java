@@ -107,8 +107,8 @@ public class LoginActivity extends BaseActivity implements GoogleApiClient.OnCon
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
 
-                updateUI(user);
-
+                //updateUI(user);
+                signIn();
             }
         };
 

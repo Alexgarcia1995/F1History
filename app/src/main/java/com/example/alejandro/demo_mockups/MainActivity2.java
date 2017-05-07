@@ -8,23 +8,21 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Html;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.FacebookActivity;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
@@ -33,11 +31,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ImageButton resultados;
     private TextView dia, horas, minutos, segundos, evento, evento_nombre;
@@ -53,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         cargarPreferencias();
         idiomas();
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
         setSupportActionBar(toolbar);
@@ -141,7 +138,7 @@ public class MainActivity extends AppCompatActivity
         resultados= (ImageButton) findViewById(R.id.resultados);
         resultados.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent resu =new Intent(MainActivity.this,Resultados.class);
+                Intent resu =new Intent(MainActivity2.this,Resultados.class);
                 startActivity(resu);
 
             }
@@ -150,7 +147,7 @@ public class MainActivity extends AppCompatActivity
         resultados=(ImageButton)findViewById(R.id.clasificacion);
         resultados.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent resu =new Intent(MainActivity.this,Clasificacion.class);
+                Intent resu =new Intent(MainActivity2.this,Clasificacion.class);
                 startActivity(resu);
 
             }
@@ -160,7 +157,7 @@ public class MainActivity extends AppCompatActivity
         resultados=(ImageButton)findViewById(R.id.calendario);
         resultados.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent resu =new Intent(MainActivity.this,Calendario.class);
+                Intent resu =new Intent(MainActivity2.this,Calendario.class);
                 startActivity(resu);
 
             }
@@ -169,7 +166,7 @@ public class MainActivity extends AppCompatActivity
         resultados=(ImageButton)findViewById(R.id.circuitos);
         resultados.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent resu =new Intent(MainActivity.this,Circuitos.class);
+                Intent resu =new Intent(MainActivity2.this,Circuitos.class);
                 startActivity(resu);
 
             }
@@ -178,7 +175,7 @@ public class MainActivity extends AppCompatActivity
         resultados=(ImageButton)findViewById(R.id.equipos);
         resultados.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent resu =new Intent(MainActivity.this,Equipos.class);
+                Intent resu =new Intent(MainActivity2.this,Equipos.class);
                 startActivity(resu);
 
             }
@@ -187,7 +184,7 @@ public class MainActivity extends AppCompatActivity
         resultados=(ImageButton)findViewById(R.id.pilotos);
         resultados.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent resu =new Intent(MainActivity.this,Pilotos.class);
+                Intent resu =new Intent(MainActivity2.this,Pilotos.class);
                 startActivity(resu);
 
             }
@@ -201,23 +198,23 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Intent campeonato=new Intent(MainActivity.this,Anyo_campeonato.class);
+            Intent campeonato=new Intent(MainActivity2.this,Anyo_campeonato.class);
             startActivity(campeonato);
         } else if (id == R.id.nav_gallery) {
-            Intent Ajustes=new Intent(MainActivity.this,Ajustes.class);
+            Intent Ajustes=new Intent(MainActivity2.this,Ajustes.class);
             startActivity(Ajustes);
         } else if (id == R.id.nav_slideshow) {
-            Intent Contact=new Intent(MainActivity.this,Contact.class);
+            Intent Contact=new Intent(MainActivity2.this,Contact.class);
             startActivity(Contact);
         } else if (id == R.id.nav_manage) {
-            Intent About=new Intent(MainActivity.this,About.class);
+            Intent About=new Intent(MainActivity2.this,About.class);
             startActivity(About);
         } else if (id == R.id.nav_share) {
-            Intent Login=new Intent(MainActivity.this,MainActivity2.class);
+            Intent Login=new Intent(MainActivity2.this,FacebookLoginActivity.class);
             startActivity(Login);
-            MainActivity.this.finish();
+            MainActivity2.this.finish();
         } else if (id == R.id.nav_send) {
-            Intent Login=new Intent(MainActivity.this,Favoritos.class);
+            Intent Login=new Intent(MainActivity2.this,Favoritos.class);
             startActivity(Login);
         }
 
