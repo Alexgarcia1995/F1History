@@ -17,7 +17,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="300dp"
-        tools:context="com.example.alejandro.demo_mockups.MapsCircuitos" />
+        tools:context="com.example.alejandro.demo_mockups.Activities.MapsCircuitos" />
 
     <TextView
         android:id="@+id/circnom"

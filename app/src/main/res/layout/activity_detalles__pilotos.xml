@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.alejandro.demo_mockups.Detalles_Pilotos">
+    tools:context="com.example.alejandro.demo_mockups.Details.Detalles_Pilotos">
 
     <include layout="@layout/content_detalles__pilotos"
         android:layout_height="358dp" />

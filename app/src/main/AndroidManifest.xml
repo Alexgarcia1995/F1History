@@ -16,12 +16,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logoapp"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".MainActivity2"
+            android:name=".Activities.MainActivity2"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -31,65 +31,65 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Anyo_campeonato"
+            android:name=".Activities.Anyo_campeonato"
             android:label="@string/title_activity_anyo_campeonato"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Ajustes"
+            android:name=".Activities.Ajustes"
             android:label="@string/title_activity_ajustes"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Contact"
+            android:name=".Activities.Contact"
             android:label="@string/title_activity_contact"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".About"
+            android:name=".Activities.About"
             android:label="@string/title_activity_about"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Activities.MainActivity" />
         <activity
-            android:name=".Clasificacion"
+            android:name=".Activities.Clasificacion"
             android:label="@string/title_activity_clasificacion"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Circuitos"
+            android:name=".Activities.Circuitos"
             android:label="@string/title_activity_circuitos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Resultados"
+            android:name=".Activities.Resultados"
             android:label="@string/title_activity_resultados"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Calendario"
+            android:name=".Activities.Calendario"
             android:label="@string/title_activity_calendario"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Pilotos"
+            android:name=".Activities.Pilotos"
             android:label="@string/title_activity_pilotos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Equipos"
+            android:name=".Activities.Equipos"
             android:label="@string/title_activity_equipos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Grid_item"
+            android:name=".Adapters.Grid_item"
             android:label="@string/title_activity_grid_item"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Detalles_Pilotos"
+            android:name=".Details.Detalles_Pilotos"
             android:label="@string/title_activity_detalles__pilotos"
-            android:parentActivityName=".Pilotos"
+            android:parentActivityName=".Activities.Pilotos"
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name="com.example.alejandro.demo_mockups.FacebookLoginActivity"
+            android:name="com.example.alejandro.demo_mockups.Activities.FacebookLoginActivity"
             android:label="@string/label_facebook_login" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -102,38 +102,38 @@
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.alejandro.demo_mockups.Pilotos" />
+            android:value="com.example.alejandro.demo_mockups.Activities.Pilotos" />
 
         <activity
-            android:name=".Detalles_Equipos"
+            android:name=".Details.Detalles_Equipos"
             android:label="@string/title_activity_detalles__equipos"
-            android:parentActivityName=".Equipos"
+            android:parentActivityName=".Activities.Equipos"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alejandro.demo_mockups.Equipos" />
+                android:value="com.example.alejandro.demo_mockups.Activities.Equipos" />
         </activity>
         <activity
-            android:name=".Detalles_Circuitos"
+            android:name=".Details.Detalles_Circuitos"
             android:label="@string/title_activity_detalles__circuitos"
-            android:parentActivityName=".Circuitos"
+            android:parentActivityName=".Activities.Circuitos"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alejandro.demo_mockups.Circuitos" />
+                android:value="com.example.alejandro.demo_mockups.Activities.Circuitos" />
         </activity>
         <activity
-            android:name=".Grid_List"
+            android:name=".Adapters.Grid_List"
             android:label="@string/title_activity_grid__list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Detalles_Resultados"
+            android:name=".Details.Detalles_Resultados"
             android:label="@string/title_activity_detalles__resultados"
-            android:parentActivityName=".Resultados"
+            android:parentActivityName=".Activities.Resultados"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alejandro.demo_mockups.Resultados" />
+                android:value="com.example.alejandro.demo_mockups.Activities.Resultados" />
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -148,21 +148,21 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsCircuitos"
+            android:name=".Activities.MapsCircuitos"
             android:label="@string/title_activity_maps_circuitos"
-            android:parentActivityName=".Circuitos"
+            android:parentActivityName=".Activities.Circuitos"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alejandro.demo_mockups.Circuitos" />
+                android:value="com.example.alejandro.demo_mockups.Activities.Circuitos" />
         </activity>
         <activity
-            android:name=".Favoritos"
+            android:name=".Activities.Favoritos"
             android:label="@string/title_activity_favoritos"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

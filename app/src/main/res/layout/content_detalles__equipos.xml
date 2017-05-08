@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.alejandro.demo_mockups.Detalles_Equipos"
+    tools:context="com.example.alejandro.demo_mockups.Details.Detalles_Equipos"
     tools:showIn="@layout/activity_detalles__equipos">
 
     <ImageView
