@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         cargarPreferencias();
         idiomas();
+        MainActivity2.valor=1;
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
@@ -312,6 +313,8 @@ public class MainActivity extends AppCompatActivity
         super.onStart();
         cargarPreferencias();
         idiomas();
+        MainActivity2.valor=1;
+
 // para ver el funcionamiento, imprimimos preferencias si existen
         String mensaje = "";
         if (this.preferenciasGuardadas) {

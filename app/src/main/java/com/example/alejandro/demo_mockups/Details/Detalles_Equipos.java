@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.alejandro.demo_mockups.Activities.Equipos;
 import com.example.alejandro.demo_mockups.Activities.Favoritos;
+import com.example.alejandro.demo_mockups.Activities.MainActivity2;
 import com.example.alejandro.demo_mockups.Data.Book;
 import com.example.alejandro.demo_mockups.Clients.BookClient;
 import com.example.alejandro.demo_mockups.Data.Datos_Equipos;
@@ -63,10 +64,10 @@ public class Detalles_Equipos extends ActionBarActivity {
                 guardarPreferencias();
             }
         });
-        if (Favoritos.valor==1){
+        if(MainActivity2.valor==0){
             fab.hide();
         }
-        else {
+        else{
             fab.show();
         }
 
@@ -180,7 +181,7 @@ public class Detalles_Equipos extends ActionBarActivity {
         int contador=0;
         if(favs.isEmpty()){
             favs.add(book);
-            Toast.makeText(this, "Equipo añadido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getText(R.string.guardado_equipos), Toast.LENGTH_SHORT).show();
         }
         else{
             for (Datos_Equipos book1 : favs){
@@ -189,11 +190,11 @@ public class Detalles_Equipos extends ActionBarActivity {
                 }
             }
             if (contador==1){
-                Toast.makeText(this, "Este equipo ya existe en favoritos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.error_guardado_equipos), Toast.LENGTH_SHORT).show();
             }
             else {
                 favs.add(book);
-                Toast.makeText(this, "Equipo añadido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.guardado_equipos), Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -30,7 +30,7 @@
     <string name="title_activity_clasificacion">Classification</string>
     <string name="title_activity_circuitos">Circuits</string>
     <string name="title_activity_calendario">Calendar</string>
-    <string name="title_activity_pilotos">Pilots</string>
+    <string name="title_activity_pilotos">Drivers</string>
     <string name="title_activity_equipos">Teams</string>
 
 
@@ -46,8 +46,12 @@
     <string name="title_activity_maps2">Map</string>
     <string name="title_activity_favoritos">Favorites</string>
 
-
-
+    <string name="guardado_circuitos">Circuit saved</string>
+    <string name="guardado_pilotos">Driver saved</string>
+    <string name="guardado_equipos">Team saved</string>
+    <string name="error_guardado_circuitos">This circuit is already on favorites</string>
+    <string name="error_guardado_equipos">This team is already on favorites</string>
+    <string name="error_guardado_pilotos">This driver is already on favorites</string>
 
 
     <string name="ganadas">Winners</string>

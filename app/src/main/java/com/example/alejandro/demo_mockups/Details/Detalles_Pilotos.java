@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.alejandro.demo_mockups.Activities.MainActivity2;
 import com.example.alejandro.demo_mockups.Activities.Pilotos;
 import com.example.alejandro.demo_mockups.Data.Book;
 import com.example.alejandro.demo_mockups.Clients.BookClient;
@@ -64,6 +65,12 @@ public class Detalles_Pilotos extends ActionBarActivity {
                 guardarPreferencias();
             }
         });
+        if(MainActivity2.valor==0){
+            fab.hide();
+        }
+        else{
+            fab.show();
+        }
     }
 
 
@@ -177,7 +184,7 @@ public class Detalles_Pilotos extends ActionBarActivity {
         int contador=0;
         if(favs.isEmpty()){
             favs.add(book);
-            Toast.makeText(this, "Piloto añadido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getText(R.string.guardado_pilotos), Toast.LENGTH_SHORT).show();
         }
         else{
             for (Book book1 : favs){
@@ -186,11 +193,11 @@ public class Detalles_Pilotos extends ActionBarActivity {
                 }
             }
             if (contador==1){
-                Toast.makeText(this, "Este piloto ya existe en favoritos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.error_guardado_pilotos), Toast.LENGTH_SHORT).show();
             }
             else {
                 favs.add(book);
-                Toast.makeText(this, "Piloto añadido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.guardado_pilotos), Toast.LENGTH_SHORT).show();
             }
             }
         }

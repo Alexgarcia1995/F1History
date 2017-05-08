@@ -1,4 +1,4 @@
-package com.example.alejandro.demo_mockups.Activities;
+package com.example.alejandro.demo_mockups.Details;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.alejandro.demo_mockups.Activities.Ajustes;
+import com.example.alejandro.demo_mockups.Activities.Circuitos;
+import com.example.alejandro.demo_mockups.Activities.MainActivity2;
 import com.example.alejandro.demo_mockups.Data.Datos_Circuitos;
 import com.example.alejandro.demo_mockups.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -64,6 +67,12 @@ public class MapsCircuitos extends ActionBarActivity
                 guardarPreferencias();
             }
         });
+        if(MainActivity2.valor==0){
+            fab.hide();
+        }
+        else{
+            fab.show();
+        }
     }
 
     private void loadcircuito(Datos_Circuitos circuito) {
@@ -104,7 +113,7 @@ public class MapsCircuitos extends ActionBarActivity
         int contador=0;
         if(favs.isEmpty()){
             favs.add(book);
-            Toast.makeText(this, "Circuito añadido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getText(R.string.guardado_circuitos), Toast.LENGTH_SHORT).show();
         }
         else{
             for (Datos_Circuitos book1 : favs){
@@ -113,11 +122,11 @@ public class MapsCircuitos extends ActionBarActivity
                 }
             }
             if (contador==1){
-                Toast.makeText(this, "Este circuito ya existe en favoritos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.error_guardado_circuitos), Toast.LENGTH_SHORT).show();
             }
             else {
                 favs.add(book);
-                Toast.makeText(this, "Circuito añadido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getText(R.string.guardado_circuitos), Toast.LENGTH_SHORT).show();
             }
         }
     }

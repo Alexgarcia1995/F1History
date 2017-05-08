@@ -1,7 +1,10 @@
 package com.example.alejandro.demo_mockups.Activities;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -55,6 +58,11 @@ public class FacebookLoginActivity extends BaseActivity implements GoogleApiClie
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_facebook);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Login");
+        toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
+        setupActionBar();
         signInButton1=(SignInButton) findViewById(R.id.sign_in_button);
         buttonFacebookLogin=(LoginButton) findViewById(R.id.button_facebook_login);
 
@@ -221,6 +229,15 @@ public class FacebookLoginActivity extends BaseActivity implements GoogleApiClie
         }
     }
 
+    private void setupActionBar() {
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+
+    }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {

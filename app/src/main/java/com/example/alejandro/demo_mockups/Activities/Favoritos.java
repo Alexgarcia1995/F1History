@@ -23,6 +23,7 @@ import com.example.alejandro.demo_mockups.Data.Datos_Circuitos;
 import com.example.alejandro.demo_mockups.Data.Datos_Equipos;
 import com.example.alejandro.demo_mockups.Details.Detalles_Equipos;
 import com.example.alejandro.demo_mockups.Details.Detalles_Pilotos;
+import com.example.alejandro.demo_mockups.Details.MapsCircuitos;
 import com.example.alejandro.demo_mockups.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -40,12 +41,11 @@ public class Favoritos extends AppCompatActivity {
     private Adapter_Circuitos circuito;
     private Adapter_Equipos equipo;
     public static final String BOOK_DETAIL_KEY = "MRData";
-    public static int valor=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        MainActivity2.valor=0;
         cargarPilotos();
         cargarCircuitos();
         cargarEquipos();
@@ -149,8 +149,8 @@ public class Favoritos extends AppCompatActivity {
                     }
                 };
                 AlertDialog.Builder builder = new AlertDialog.Builder(Favoritos.this);
-                builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
-                        .setNegativeButton("No", dialogClickListener).show();
+                builder.setMessage(getText(R.string.borrado)).setPositiveButton(getText(R.string.si), dialogClickListener)
+                        .setNegativeButton(getText(R.string.no), dialogClickListener).show();
                 return true;
             }
         });
@@ -189,8 +189,8 @@ public class Favoritos extends AppCompatActivity {
                     }
                 };
                 AlertDialog.Builder builder = new AlertDialog.Builder(Favoritos.this);
-                builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
-                        .setNegativeButton("No", dialogClickListener).show();
+                builder.setMessage(getText(R.string.borrado)).setPositiveButton(getText(R.string.si), dialogClickListener)
+                        .setNegativeButton(getText(R.string.no), dialogClickListener).show();
                 return true;
             }
         });
@@ -221,8 +221,8 @@ public class Favoritos extends AppCompatActivity {
                     }
                 };
                 AlertDialog.Builder builder = new AlertDialog.Builder(Favoritos.this);
-                builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
-                        .setNegativeButton("No", dialogClickListener).show();
+                builder.setMessage(getText(R.string.borrado)).setPositiveButton(getText(R.string.si), dialogClickListener)
+                        .setNegativeButton(getText(R.string.no), dialogClickListener).show();
                 return true;
             }
         });
@@ -232,7 +232,6 @@ public class Favoritos extends AppCompatActivity {
                 // Launch the detail view passing book as an extra
                 Intent intent = new Intent(Favoritos.this, Detalles_Equipos.class);
                 intent.putExtra(BOOK_DETAIL_KEY, equipo.getItem(position));
-                valor=1;
                 startActivity(intent);
             }
         });
@@ -246,6 +245,9 @@ public class Favoritos extends AppCompatActivity {
         Type type = new TypeToken<ArrayList<Book>>() {
         }.getType();
         Pilotos = gson.fromJson(json, type);
+        if(Pilotos==null){
+            Pilotos=new ArrayList<>();
+        }
     }
     public void cargarCircuitos(){
         SharedPreferences prefs = getSharedPreferences("favoritos", Context.MODE_PRIVATE);
@@ -254,6 +256,9 @@ public class Favoritos extends AppCompatActivity {
         Type type = new TypeToken<ArrayList<Datos_Circuitos>>() {
         }.getType();
         circuitos= gson.fromJson(json, type);
+        if(circuitos==null){
+            circuitos=new ArrayList<>();
+        }
     }
     public void cargarEquipos(){
         SharedPreferences prefs = getSharedPreferences("favoritos", Context.MODE_PRIVATE);
@@ -262,6 +267,10 @@ public class Favoritos extends AppCompatActivity {
         Type type = new TypeToken<ArrayList<Datos_Equipos>>() {
         }.getType();
         equipos= gson.fromJson(json, type);
+        if(equipos==null){
+            equipos=new ArrayList<>();
+        }
+
     }
 
     public void guardarPreferencias() {

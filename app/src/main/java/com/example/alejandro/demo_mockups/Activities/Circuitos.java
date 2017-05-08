@@ -14,6 +14,7 @@ import android.widget.GridView;
 import com.example.alejandro.demo_mockups.Adapters.Adapter_Circuitos;
 import com.example.alejandro.demo_mockups.Clients.Client_Circuits;
 import com.example.alejandro.demo_mockups.Data.Datos_Circuitos;
+import com.example.alejandro.demo_mockups.Details.MapsCircuitos;
 import com.example.alejandro.demo_mockups.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
 

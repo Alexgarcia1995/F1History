@@ -38,7 +38,6 @@ public class Ajustes extends AppCompatActivity {
         setupActionBar();
         String [] valor1 = {"Español","Ingles"};
         String [] valor2 = {"Gris","Naranja","Violeta"};
-        Button btn = (Button) findViewById(R.id.guardar);
         String[] plants;
         if (idioma.equals("en")){
             plants= new String[]{"English", "Spanish"};
@@ -170,8 +169,6 @@ public class Ajustes extends AppCompatActivity {
         editor.putString("color",Ajustes.color_app);
         // editor.putString("preferencia2", "y tambien esto");
         editor.commit();
-        Toast.makeText(this, "guardando preferencias", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this,  Ajustes.idioma, Toast.LENGTH_SHORT).show();
     }
 
 

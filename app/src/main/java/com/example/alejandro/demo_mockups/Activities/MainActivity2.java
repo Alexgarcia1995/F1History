@@ -46,12 +46,13 @@ public class MainActivity2 extends AppCompatActivity
     private Runnable runnable;
     private Client_Data datos;
     private String data;
-
+    public static int valor=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         cargarPreferencias();
         idiomas();
+        valor=0;
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
@@ -213,7 +214,6 @@ public class MainActivity2 extends AppCompatActivity
         } else if (id == R.id.nav_share) {
             Intent Login=new Intent(MainActivity2.this,FacebookLoginActivity.class);
             startActivity(Login);
-            MainActivity2.this.finish();
         } else if (id == R.id.nav_send) {
             Intent Login=new Intent(MainActivity2.this,Favoritos.class);
             startActivity(Login);

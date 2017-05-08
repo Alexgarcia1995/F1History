@@ -51,7 +51,6 @@ public class Equipos extends AppCompatActivity {
         adapter=new Adapter_Equipos(this,datos);
         gridView.setAdapter(adapter);
         setupBookSelectedListener();
-        Favoritos.valor=0;
     }
 
     public void fetchequips(String query) {

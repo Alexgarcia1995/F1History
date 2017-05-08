@@ -46,6 +46,13 @@
     <string name="title_activity_maps2">Map</string>
     <string name="title_activity_favoritos">Favoritos</string>
 
+    <string name="guardado_circuitos">Circuito guardado</string>
+    <string name="guardado_pilotos">Piloto guardado</string>
+    <string name="guardado_equipos">Equipo guardado</string>
+    <string name="error_guardado_circuitos">Este circuito ya esta en favoritos</string>
+    <string name="error_guardado_equipos">Este equipo ya esta en favoritos</string>
+    <string name="error_guardado_pilotos">Este piloto ya esta en favoritos</string>
+
 
     <string name="ganadas">Ganadas</string>
     <string name="Resultados">Resultados</string>
@@ -61,7 +68,6 @@
     <string name="Segundos">Segundos</string>
     <string name="Posicion">Posicion</string>
     <string name="Pos">Pos</string>
-
 
 
 
