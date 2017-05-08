@@ -100,4 +100,7 @@
     <string name="Año_Competición">Competition Year</string>
     <string name="Contacto">Contact</string>
     <string name="El_año_ha_cambiado_a">The year has changed to</string>
+
+    <string name="about">This app has been realized by  Alejandro Garcia Sanz and Jorge Sempere Perez
+        for an Adroid project in the curse of 1DAW in IES Estacio </string>
 </resources>

@@ -156,5 +156,6 @@
 
     <string name="id_fmt">User ID: %s</string>
     <string name="email_fmt">Email: %s</string>
-
+    <string name="about">Esta aplicacion ha sido realizada como proyecto de Android de 1DAW de IES Estacio, realizada
+    por Alejandro Garcia Sanz y Jorge Sempere Perez</string>
 </resources>

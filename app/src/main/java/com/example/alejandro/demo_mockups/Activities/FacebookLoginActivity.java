@@ -18,6 +18,7 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
@@ -65,7 +66,7 @@ public class FacebookLoginActivity extends BaseActivity implements GoogleApiClie
         setupActionBar();
         signInButton1=(SignInButton) findViewById(R.id.sign_in_button);
         buttonFacebookLogin=(LoginButton) findViewById(R.id.button_facebook_login);
-
+        LoginManager.getInstance().logOut();
         // Configure Google and facebook Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(
                 getString(R.string.default_web_client_id)).requestEmail().build();
@@ -179,6 +180,7 @@ public class FacebookLoginActivity extends BaseActivity implements GoogleApiClie
                 hideProgressDialog();
                 Intent volver =new Intent(FacebookLoginActivity.this,MainActivity.class);
                 startActivity(volver);
+                FacebookLoginActivity.this.finish();
             }
         });
     }

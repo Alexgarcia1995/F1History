@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.example.alejandro.demo_mockups.R;
 
 public class About extends AppCompatActivity {
 
+    private TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +20,8 @@ public class About extends AppCompatActivity {
         toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
         setSupportActionBar(toolbar);
         setupActionBar();
+        text=(TextView)findViewById(R.id.textView4);
+        text.setText(getText(R.string.about));
     }
     private void setupActionBar(){
 

@@ -204,14 +204,15 @@ public class MainActivity extends AppCompatActivity
             Intent Ajustes=new Intent(MainActivity.this,Ajustes.class);
             startActivity(Ajustes);
         } else if (id == R.id.nav_slideshow) {
-            Intent Contact=new Intent(MainActivity.this, com.example.alejandro.demo_mockups.Activities.Contact.class);
+            Intent Contact=new Intent(MainActivity.this, Contact.class);
             startActivity(Contact);
         } else if (id == R.id.nav_manage) {
-            Intent About=new Intent(MainActivity.this, com.example.alejandro.demo_mockups.Activities.About.class);
+            Intent About=new Intent(MainActivity.this, About.class);
             startActivity(About);
         } else if (id == R.id.nav_share) {
-            Intent Login=new Intent(MainActivity.this,MainActivity2.class);
-            startActivity(Login);
+            Intent Login= new Intent(MainActivity.this, MainActivity2.class);
+            Login.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivityIfNeeded(Login, 0);
             MainActivity.this.finish();
         } else if (id == R.id.nav_send) {
             Intent Login=new Intent(MainActivity.this,Favoritos.class);

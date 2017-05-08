@@ -52,7 +52,6 @@ public class MainActivity2 extends AppCompatActivity
         super.onCreate(savedInstanceState);
         cargarPreferencias();
         idiomas();
-        valor=0;
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(Color.parseColor(Ajustes.color_app));
@@ -294,15 +293,15 @@ public class MainActivity2 extends AppCompatActivity
 
     public void cargarPreferencias(){
         SharedPreferences prefs = getSharedPreferences("preferenciasMiApp", Context.MODE_PRIVATE);
-        Ajustes.idioma = prefs.getString("idioma", "es");
-        Ajustes.mapa= prefs.getString("mapa","Satelite");
-        Ajustes.color_app=prefs.getString("color","#777777");
+        //Ajustes.idioma = "es";
+        Ajustes.mapa= "Satelite";
+        Ajustes.color_app="#777777";//prefs.getString("color","#777777");
         //  this.preferencias2 = prefs.getString("preferencia2", "valor por defecto");
         preferenciasGuardadas = prefs.getBoolean("preferenciasGuardadas", false);
 
     }
     public void idiomas(){
-        Locale localizacion = new Locale( Ajustes.idioma);
+        Locale localizacion = new Locale( "es");
         Locale.setDefault(localizacion);
         Configuration config = new Configuration();
         config.locale = localizacion;
@@ -313,20 +312,12 @@ public class MainActivity2 extends AppCompatActivity
         super.onStart();
         cargarPreferencias();
         idiomas();
-// para ver el funcionamiento, imprimimos preferencias si existen
-        String mensaje = "";
-        if (this.preferenciasGuardadas) {
-            mensaje = "Las preferencias fueron guardadas ya";
-        } else {
-            mensaje = "Las preferencias todavia no se guardaron";
-        }
+        valor=0;
     }
     public void onDestroy(){
         super.onDestroy();
-        guardarPreferencias();
+        //guardarPreferencias();
     }
-
-
 
 
 
